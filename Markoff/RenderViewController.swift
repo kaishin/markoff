@@ -17,10 +17,10 @@ class RenderViewController: NSViewController {
   }
 
   override func viewDidAppear() {
-    if let doc = view.window?.windowController?.document as? MarkdownDocument, let fileName = doc.fileURL?.path {
-      parser.run([fileName]) { output, error in
+    if let doc = view.window?.windowController?.document as? MarkdownDocument, let filePath = doc.fileURL?.path {
+      parser.parse(filePath) { output in
         let prelude = "<body style='font-family:\"Helvetica\"'>"
-        let html = prelude + output![0] + "</body>"
+        let html = prelude + output + "</body>"
         self.webView.loadHTMLString(html, baseURL: nil)
       }
     }
