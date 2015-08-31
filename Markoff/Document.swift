@@ -1,15 +1,6 @@
-//
-//  Document.swift
-//  Markoff
-//
-//  Created by Reda Lemeden on 31/08/2015.
-//  Copyright © 2015 thoughtbot. All rights reserved.
-//
-
 import Cocoa
 
 class Document: NSDocument {
-
   override init() {
       super.init()
     // Add your subclass-specific initialization here.
@@ -43,7 +34,5 @@ class Document: NSDocument {
     // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
     throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
   }
-
-
 }
 
