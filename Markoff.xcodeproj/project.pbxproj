@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000516F91B948CC300BCFD09 /* cmark in Resources */ = {isa = PBXBuildFile; fileRef = 000516F81B948CC300BCFD09 /* cmark */; settings = {ASSET_TAGS = (); }; };
+		000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000516FA1B948CD400BCFD09 /* MarkdownParser.swift */; settings = {ASSET_TAGS = (); }; };
 		009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10231B94657D0004EA76 /* AppDelegate.swift */; };
 		009F10261B94657D0004EA76 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10251B94657D0004EA76 /* RenderViewController.swift */; };
 		009F10281B94657D0004EA76 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10271B94657D0004EA76 /* MarkdownDocument.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		000516F81B948CC300BCFD09 /* cmark */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cmark; sourceTree = "<group>"; };
+		000516FA1B948CD400BCFD09 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
 		009F10201B94657D0004EA76 /* Markoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009F10231B94657D0004EA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		009F10251B94657D0004EA76 /* RenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 		009F10341B946A510004EA76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				000516F81B948CC300BCFD09 /* cmark */,
 				009F10291B94657D0004EA76 /* Assets.xcassets */,
 				009F10491B9477300004EA76 /* Markoff.entitlements */,
 				009F102E1B94657D0004EA76 /* Info.plist */,
@@ -103,6 +108,7 @@
 				009F10231B94657D0004EA76 /* AppDelegate.swift */,
 				009F10251B94657D0004EA76 /* RenderViewController.swift */,
 				009F10271B94657D0004EA76 /* MarkdownDocument.swift */,
+				000516FA1B948CD400BCFD09 /* MarkdownParser.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -150,7 +156,7 @@
 						CreatedOnToolsVersion = 7.0;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -179,6 +185,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000516F91B948CC300BCFD09 /* cmark in Resources */,
 				009F102A1B94657D0004EA76 /* Assets.xcassets in Resources */,
 				009F102D1B94657D0004EA76 /* Main.storyboard in Resources */,
 			);
@@ -194,6 +201,7 @@
 				009F10261B94657D0004EA76 /* RenderViewController.swift in Sources */,
 				009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */,
 				009F10281B94657D0004EA76 /* MarkdownDocument.swift in Sources */,
+				000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +303,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Markoff/Markoff.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Markoff/Info.plist;
@@ -309,7 +316,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Markoff/Markoff.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Markoff/Info.plist;
@@ -338,6 +344,7 @@
 				009F10331B94657D0004EA76 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

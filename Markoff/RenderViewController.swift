@@ -3,6 +3,7 @@ import WebKit
 
 class RenderViewController: NSViewController {
   var webView: WKWebView!
+  let parser = MarkdownParser()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -17,9 +18,11 @@ class RenderViewController: NSViewController {
 
   override func viewDidAppear() {
     if let doc = view.window?.windowController?.document as? MarkdownDocument, let fileName = doc.fileURL?.path {
-      let prelude = "<body style='font-family:\"Helvetica\"'>"
-      let html = prelude + fileName + "</body>"
-      webView.loadHTMLString(html, baseURL: nil)
+      parser.run([fileName]) { output, error in
+        let prelude = "<body style='font-family:\"Helvetica\"'>"
+        let html = prelude + output![0] + "</body>"
+        self.webView.loadHTMLString(html, baseURL: nil)
+      }
     }
   }
 
