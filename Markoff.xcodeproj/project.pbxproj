@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10231B94657D0004EA76 /* AppDelegate.swift */; };
-		009F10261B94657D0004EA76 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10251B94657D0004EA76 /* ViewController.swift */; };
-		009F10281B94657D0004EA76 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10271B94657D0004EA76 /* Document.swift */; };
+		009F10261B94657D0004EA76 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10251B94657D0004EA76 /* RenderViewController.swift */; };
+		009F10281B94657D0004EA76 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F10271B94657D0004EA76 /* MarkdownDocument.swift */; };
 		009F102A1B94657D0004EA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009F10291B94657D0004EA76 /* Assets.xcassets */; };
 		009F102D1B94657D0004EA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009F102B1B94657D0004EA76 /* Main.storyboard */; };
+		009F10381B946B070004EA76 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009F10371B946B070004EA76 /* WebKit.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		009F105B1B94837D0004EA76 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		009F10201B94657D0004EA76 /* Markoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009F10231B94657D0004EA76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		009F10251B94657D0004EA76 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		009F10271B94657D0004EA76 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		009F10251B94657D0004EA76 /* RenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
+		009F10271B94657D0004EA76 /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		009F10291B94657D0004EA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		009F102C1B94657D0004EA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		009F102E1B94657D0004EA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		009F10371B946B070004EA76 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		009F10491B9477300004EA76 /* Markoff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Markoff.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				009F10381B946B070004EA76 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,14 +71,48 @@
 		009F10221B94657D0004EA76 /* Markoff */ = {
 			isa = PBXGroup;
 			children = (
-				009F10231B94657D0004EA76 /* AppDelegate.swift */,
-				009F10251B94657D0004EA76 /* ViewController.swift */,
-				009F10271B94657D0004EA76 /* Document.swift */,
-				009F10291B94657D0004EA76 /* Assets.xcassets */,
-				009F102B1B94657D0004EA76 /* Main.storyboard */,
-				009F102E1B94657D0004EA76 /* Info.plist */,
+				009F10361B946A630004EA76 /* Classes */,
+				009F10391B946B120004EA76 /* Frameworks */,
+				009F10341B946A510004EA76 /* Resources */,
+				009F10351B946A590004EA76 /* Storyboards */,
 			);
 			path = Markoff;
+			sourceTree = "<group>";
+		};
+		009F10341B946A510004EA76 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				009F10291B94657D0004EA76 /* Assets.xcassets */,
+				009F10491B9477300004EA76 /* Markoff.entitlements */,
+				009F102E1B94657D0004EA76 /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		009F10351B946A590004EA76 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				009F102B1B94657D0004EA76 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		009F10361B946A630004EA76 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				009F10231B94657D0004EA76 /* AppDelegate.swift */,
+				009F10251B94657D0004EA76 /* RenderViewController.swift */,
+				009F10271B94657D0004EA76 /* MarkdownDocument.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		009F10391B946B120004EA76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				009F10371B946B070004EA76 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,6 +125,7 @@
 				009F101C1B94657D0004EA76 /* Sources */,
 				009F101D1B94657D0004EA76 /* Frameworks */,
 				009F101E1B94657D0004EA76 /* Resources */,
+				009F105B1B94837D0004EA76 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -90,11 +142,17 @@
 		009F10181B94657D0004EA76 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = thoughtbot;
 				TargetAttributes = {
 					009F101F1B94657D0004EA76 = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -133,9 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				009F10261B94657D0004EA76 /* ViewController.swift in Sources */,
+				009F10261B94657D0004EA76 /* RenderViewController.swift in Sources */,
 				009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */,
-				009F10281B94657D0004EA76 /* Document.swift in Sources */,
+				009F10281B94657D0004EA76 /* MarkdownDocument.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +295,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Markoff/Markoff.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Markoff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Markoff;
@@ -249,7 +309,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Markoff/Markoff.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Markoff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Markoff;

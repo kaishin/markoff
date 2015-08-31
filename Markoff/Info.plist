@@ -10,6 +10,7 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>md</string>
+				<string>markdown</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string></string>
@@ -20,9 +21,9 @@
 				<string>????</string>
 			</array>
 			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
+			<string>Viewer</string>
 			<key>NSDocumentClass</key>
-			<string>$(PRODUCT_MODULE_NAME).Document</string>
+			<string>$(PRODUCT_MODULE_NAME).MarkdownDocument</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>

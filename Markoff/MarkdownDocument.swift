@@ -1,6 +1,6 @@
 import Cocoa
 
-class Document: NSDocument {
+class MarkdownDocument: NSDocument {
   override init() {
       super.init()
     // Add your subclass-specific initialization here.
@@ -33,6 +33,13 @@ class Document: NSDocument {
     // You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
     // If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
     throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
+  }
+
+  override func presentedItemDidChange() {
+    super.presentedItemDidChange()
+  }
+
+  override func readFromURL(url: NSURL, ofType typeName: String) throws {
   }
 }
 
