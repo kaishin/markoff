@@ -4,26 +4,33 @@ import WebKit
 class RenderViewController: NSViewController {
   var webView: WKWebView!
   let parser = MarkdownParser()
+  var viewModel: RenderViewModel? {
+    didSet {
+      let prelude = "<body style='font-family:\"Helvetica\"'>"
+      let html = prelude + viewModel!.HTMLString + "</body>"
+      webView.loadHTMLString(html, baseURL: nil)
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     setupWebView()
   }
 
-  override var representedObject: AnyObject? {
-    didSet {
-      print("represented project did change")
-    }
+  override func viewDidAppear() {
+    super.viewDidAppear()
+    listenToDocumentChangeSignal()
+
+    guard let document = view.window?.windowController?.document as? MarkdownDocument else { return }
+    self.viewModel = RenderViewModel(HTMLString: document.HTML.value)
   }
 
-  override func viewDidAppear() {
-    if let doc = view.window?.windowController?.document as? MarkdownDocument, let filePath = doc.fileURL?.path {
-      parser.parse(filePath) { output in
-        let prelude = "<body style='font-family:\"Helvetica\"'>"
-        let html = prelude + output + "</body>"
-        self.webView.loadHTMLString(html, baseURL: nil)
-      }
-    }
+  private func listenToDocumentChangeSignal() {
+    guard let windowController = view.window?.windowController as? WindowController else { return }
+
+    windowController.documentChangeSignal.observe(next: { output in
+      self.viewModel = RenderViewModel(HTMLString: output)
+    })
   }
 
   private func setupWebView() {
