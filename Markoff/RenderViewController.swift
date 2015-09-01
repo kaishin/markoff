@@ -7,7 +7,7 @@ class RenderViewController: NSViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    createWebView()
+    setupWebView()
   }
 
   override var representedObject: AnyObject? {
@@ -26,7 +26,7 @@ class RenderViewController: NSViewController {
     }
   }
 
-  private func createWebView() {
+  private func setupWebView() {
     webView = WKWebView(frame: view.bounds, configuration: WKWebViewConfiguration())
     view.addSubview(webView)
     webView.translatesAutoresizingMaskIntoConstraints = false
