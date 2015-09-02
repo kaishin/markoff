@@ -37,4 +37,5 @@ Carthage/
 # Theme
 node_modules
 _site/
+_vendor/
 

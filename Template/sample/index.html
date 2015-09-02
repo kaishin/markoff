@@ -1,0 +1,14 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><link rel=stylesheet href=/css/main.css></head><body><main><hr><p>title: “Getting Started”<br>date: 2014-06-13 14:56:02 +0200<br>category: learn-swift<br>tags:<br>- beginner<br>- pokémon<br>- tutorial<br>teaser: “In this first section, we cover variables, constants, type inference, casting, and string interpolation.”<br>—</p><h3 id=console-output>Console Output</h3><p>Use the <code>print()</code> function to print to the console:</p><pre><code class=language-swift>print("Hello there! Welcome to the world of Pokémon!")
+</code></pre><h3 id=variables>Variables</h3><p>Variables are declared using the keyword <code>var</code>, followed by the variable name and <a href=#type-inference>optionally</a> its type. A value can be assigned to the variable using the <code>=</code> operand:</p><pre><code class=language-swift>var playerName: String = "Red"
+</code></pre><p>Variables can be re-assigned:</p><pre><code class=language-swift>playerName = "Blue"
+</code></pre><p>…but cannot be <code>nil</code>, unless they are optional[^intro1].</p><pre><code class=language-swift>playerName = nil
+// -&gt; Error
+</code></pre><h3 id=constants>Constants</h3><p>Constants are declared similarly to <a href=#variables>variables</a>, except they use the<br>keyword <code>let</code> instead:</p><pre><code class=language-swift>let gameTitle: String = "Pokémon Red"
+</code></pre><p>…and cannot be re-assigned:</p><pre><code class=language-swift>gameTitle = "Pokémon Blue"
+// -&gt; Error
+</code></pre><p>Like variables, constants cannot be <code>nil</code>.</p><h3 id=type-inference>Type Inference</h3><p>Type inference refers to the compiler’s ability to implicitly determine the type of a variable without having to specify it in the declaration:</p><pre><code class=language-swift>var rivalName = "Blue"
+</code></pre><h3 id=string-interpolation>String Interpolation</h3><p>Values can be included in strings using a <code>\</code> and the desired value between parentheses:</p><pre><code class=language-swift>var totalHP = 15
+var damage = 10
+var currentHP = "Current HP: \(totalHP - damage)"
+// -&gt; "Current HP: 5"
+</code></pre></main></body></html>

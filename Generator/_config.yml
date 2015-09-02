@@ -1,0 +1,33 @@
+title: "Preview"
+author:
+  name: "Markoff"
+source: source
+destination: ../Template
+baseurl: ""
+url: localhost:4000
+future: true
+show_drafts: true
+lsi: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: nil
+permalink: pretty
+exclude: [
+  "bower.json",
+  "node_modules",
+  "gulp.js",
+  "gulpfile.coffee",
+  "package.json",
+  "README.md",
+  "Gemfile",
+  "Gemfile.lock"
+]
+
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: default
