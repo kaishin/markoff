@@ -6,9 +6,7 @@ class RenderViewController: NSViewController {
   let parser = MarkdownParser()
   var viewModel: RenderViewModel? {
     didSet {
-      let prelude = "<body style='font-family:\"Helvetica\"'>"
-      let html = prelude + viewModel!.HTMLString + "</body>"
-      webView.loadHTMLString(html, baseURL: nil)
+      webView.loadHTMLString(viewModel!.fullPageString, baseURL: viewModel!.baseURL)
     }
   }
 
