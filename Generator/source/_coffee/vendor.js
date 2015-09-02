@@ -1,1 +1,1 @@
-//= include ../_vendor/sprint.js/sprint.js
+//= include ../_vendor/highlightjs/highlight.pack.js
