@@ -17,3 +17,13 @@ class MarkdownParser: NSObject {
     })
   }
 }
+
+private func removeFrontMatter(markdown: String) -> String {
+  let result = markdown =~ "-{3}[a-z]*\n[\\s\\S]*?\n-{3}"
+  if result.isMatching {
+    let frontMatter = result.matches[0]
+    return markdown.stringByReplacingOccurrencesOfString(frontMatter, withString: "")
+  } else {
+    return markdown
+  }
+}

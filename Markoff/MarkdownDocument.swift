@@ -33,3 +33,4 @@ class MarkdownDocument: NSDocument {
     }
   }
 }
+
