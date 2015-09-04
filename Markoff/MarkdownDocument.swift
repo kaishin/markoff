@@ -6,6 +6,10 @@ class MarkdownDocument: NSDocument {
   let parser = MarkdownParser()
   var HTML = ObservableString("")
 
+  var path: String {
+    return fileURL?.path ?? ""
+  }
+
   override class func autosavesInPlace() -> Bool {
     return true
   }
@@ -16,20 +20,41 @@ class MarkdownDocument: NSDocument {
     addWindowController(windowController)
   }
 
-  override func presentedItemDidChange() {
-    super.presentedItemDidChange()
-    convertToHTML()
-  }
-
   override func readFromURL(url: NSURL, ofType typeName: String) throws {
     convertToHTML()
+    addToWatchedPaths()
+    listenToChanges()
+  }
+
+  deinit {
+    removeFromWatchedPaths()
   }
 
   private func convertToHTML() {
-    guard let path = fileURL?.path else { return }
-
     parser.parse(path) { output in
       self.HTML.value = output
+    }
+  }
+
+  private func listenToChanges() {
+    let changeSignal = FileWatcher.eventSignal.filter { eventPath in
+      self.path == eventPath
+    }
+
+    changeSignal.observe(next: { eventPath in
+      self.convertToHTML()
+    })
+  }
+
+  private func addToWatchedPaths() {
+    FileWatcher.sharedWatcher.pathsToWatch.append(path)
+  }
+
+  private func removeFromWatchedPaths() {
+    let watcher = FileWatcher.sharedWatcher
+
+    if let index = watcher.pathsToWatch.indexOf(path) {
+      watcher.pathsToWatch.removeAtIndex(index)
     }
   }
 }
