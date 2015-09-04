@@ -30,7 +30,9 @@ class MarkdownParser: NSObject {
   }
 
   deinit {
-    _ = try? NSFileManager.defaultManager().removeItemAtURL(tempFileURL)
+    do {
+      try NSFileManager.defaultManager().removeItemAtURL(tempFileURL)
+    } catch { return }
   }
 }
 
