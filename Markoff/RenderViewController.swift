@@ -35,6 +35,10 @@ class RenderViewController: NSViewController {
     webView = WKWebView(frame: view.bounds, configuration: WKWebViewConfiguration())
     view.addSubview(webView)
     webView.translatesAutoresizingMaskIntoConstraints = false
+    
+    #if DEBUG
+      webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+    #endif
 
     view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|",
       options: NSLayoutFormatOptions(),
