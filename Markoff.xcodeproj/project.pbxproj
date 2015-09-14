@@ -159,6 +159,7 @@
 				009F101D1B94657D0004EA76 /* Frameworks */,
 				009F101E1B94657D0004EA76 /* Resources */,
 				009F105B1B94837D0004EA76 /* Embed Frameworks */,
+				005D1EA61BA7210C00789D51 /* Set Version Number */,
 			);
 			buildRules = (
 			);
@@ -181,6 +182,7 @@
 				TargetAttributes = {
 					009F101F1B94657D0004EA76 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 8E7TQ638ZD;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -220,6 +222,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		005D1EA61BA7210C00789D51 /* Set Version Number */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Set Version Number";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --abbrev=0)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS+1))\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${COMMITS}\" \"${INFOPLIST_FILE}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString ${GIT_RELEASE_VERSION#*v}\" \"${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		009F101C1B94657D0004EA76 /* Sources */ = {
@@ -335,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -354,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
