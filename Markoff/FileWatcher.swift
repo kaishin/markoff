@@ -12,7 +12,6 @@ public class FileWatcher {
   private var stream: FSEventStreamRef!
   private var lastEventId = FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
 
-
   private let eventCallback: FSEventStreamCallback = {(
     stream: ConstFSEventStreamRef,
     contextInfo: UnsafeMutablePointer<Void>,
