@@ -3,22 +3,25 @@ import Foundation
 class MarkdownParser: NSObject {
   let tempFileURL = temporaryFileURL()
 
-  private var executableURL: NSURL {
-    return NSBundle.mainBundle().URLForResource("cmark", withExtension: nil)!
-  }
-
   func parse(filePath: String, handler: String -> ()) {
     writeTempFile(originalFilePath: filePath)
 
-    let stdout = NSPipe()
-    let task = try! NSUserUnixTask(URL: executableURL)
-    task.standardOutput = stdout.fileHandleForWriting
+    let task = NSTask()
+    task.arguments = [tempFileURL.path!]
+    task.standardOutput = NSPipe()
+    task.launchPath = NSBundle.mainBundle().pathForResource("cmark", ofType: "")!
 
-    task.executeWithArguments([tempFileURL.path!], completionHandler: { _ in
-      let outputData = stdout.fileHandleForReading.readDataToEndOfFile()
-      let output = NSString(data: outputData, encoding: NSUTF8StringEncoding) as? String ?? "Parsing failed."
+    task.terminationHandler = { task in
+      guard let outputData = task.standardOutput?.fileHandleForReading.readDataToEndOfFile(),
+        let output = NSString(data: outputData, encoding: NSUTF8StringEncoding) as? String else {
+          handler("Parsing failed.")
+          return
+      }
+
       handler(output)
-    })
+    }
+
+    task.launch()
   }
 
   private func writeTempFile(originalFilePath path: String) -> Bool {
