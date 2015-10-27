@@ -2,7 +2,7 @@ import Cocoa
 import WebKit
 
 class RenderViewController: NSViewController {
-  var webView: WKWebView!
+  var webView: WebView!
   let parser = MarkdownParser()
   var viewModel: RenderViewModel? {
     didSet {
@@ -32,7 +32,7 @@ class RenderViewController: NSViewController {
   }
 
   private func setupWebView() {
-    webView = WKWebView(frame: view.bounds, configuration: WKWebViewConfiguration())
+    webView = WebView(frame: view.bounds)
     view.addSubview(webView)
     webView.translatesAutoresizingMaskIntoConstraints = false
     
