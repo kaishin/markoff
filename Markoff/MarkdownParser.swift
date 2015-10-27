@@ -7,7 +7,7 @@ class MarkdownParser: NSObject {
     writeTempFile(originalFilePath: filePath)
 
     let task = NSTask()
-    task.arguments = [tempFileURL.path!]
+    task.arguments = [tempFileURL.path!, "--smart"]
     task.standardOutput = NSPipe()
     task.launchPath = NSBundle.mainBundle().pathForResource("cmark", ofType: "")!
 

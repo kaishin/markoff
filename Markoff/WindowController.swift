@@ -9,7 +9,7 @@ class WindowController: NSWindowController {
       guard let markdownDocument = document as? MarkdownDocument else { return }
 
       markdownDocument.HTML.producer.on(next: { HTML in
-        sendNext(self.documentChangeSink, HTML)
+        self.documentChangeSink.sendNext(HTML)
       }).start()
     }
   }

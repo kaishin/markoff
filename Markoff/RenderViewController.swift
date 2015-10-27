@@ -26,9 +26,9 @@ class RenderViewController: NSViewController {
   private func listenToDocumentChangeSignal() {
     guard let windowController = view.window?.windowController as? WindowController else { return }
 
-    windowController.documentChangeSignal.observe(next: { output in
+    windowController.documentChangeSignal.observeNext { output in
       self.viewModel = RenderViewModel(HTMLString: output)
-    })
+    }
   }
 
   private func setupWebView() {

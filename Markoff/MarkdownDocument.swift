@@ -41,9 +41,9 @@ class MarkdownDocument: NSDocument {
       self.path == eventPath
     }
 
-    changeSignal.observe(next: { eventPath in
+    changeSignal.observeNext { eventPath in
       self.convertToHTML()
-    })
+    }
   }
 
   private func addToWatchedPaths() {

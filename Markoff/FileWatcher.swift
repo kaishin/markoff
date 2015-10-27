@@ -22,7 +22,7 @@ public class FileWatcher {
     ) in
 
     if let paths = unsafeBitCast(eventPaths, NSArray.self) as? [String] {
-      sendNext(FileWatcher.eventSink, paths[0])
+      FileWatcher.eventSink.sendNext(paths[0])
     }
   }
 
