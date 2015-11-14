@@ -84,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				002487191BE00FF40092900B /* WebView.swift */,
+				009F10251B94657D0004EA76 /* RenderViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -143,7 +144,6 @@
 				009F10231B94657D0004EA76 /* AppDelegate.swift */,
 				009F10271B94657D0004EA76 /* MarkdownDocument.swift */,
 				000516FA1B948CD400BCFD09 /* MarkdownParser.swift */,
-				009F10251B94657D0004EA76 /* RenderViewController.swift */,
 				005103A71B95B1E1006F04C9 /* RenderViewModel.swift */,
 				005103A51B95B13F006F04C9 /* WindowController.swift */,
 				009627891B975C6700E0A79D /* Regex.swift */,

@@ -9,6 +9,11 @@ class WebView: WKWebView {
     let autoScrollCode = "window.scrollTo(0,document.body.scrollHeight);"
     let autoScrollScript = WKUserScript(source: autoScrollCode, injectionTime: .AtDocumentEnd, forMainFrameOnly: true)
     config.userContentController.addUserScript(autoScrollScript)
+
+    #if DEBUG
+      config.preferences.setValue(true, forKey: "developerExtrasEnabled")
+    #endif
+
     super.init(frame: frame, configuration: config)
   }
 }

@@ -2,8 +2,11 @@ import Cocoa
 import WebKit
 
 class RenderViewController: NSViewController {
-  var webView: WebView!
   let parser = MarkdownParser()
+  lazy var webView: WebView = {
+    return WebView(frame: self.view.bounds)
+  }()
+
   var viewModel: RenderViewModel? {
     didSet {
       webView.loadHTMLString(viewModel!.fullPageString, baseURL: viewModel!.baseURL)
@@ -32,13 +35,8 @@ class RenderViewController: NSViewController {
   }
 
   private func setupWebView() {
-    webView = WebView(frame: view.bounds)
     view.addSubview(webView)
     webView.translatesAutoresizingMaskIntoConstraints = false
-    
-    #if DEBUG
-      webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
-    #endif
 
     view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|",
       options: NSLayoutFormatOptions(),
