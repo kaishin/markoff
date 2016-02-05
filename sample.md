@@ -1,10 +1,10 @@
 ---
 title: "Sample Markdown Document"
-tags: tag1, tag2, tag3
+tags: "tag-1", "tag-2", "tag-3"
 author: Reda Lemeden
 ---
 
-# Chaper 1
+# Chapter 1
 ## Loomings
 
 Call me Ishmael. Some years ago- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.
