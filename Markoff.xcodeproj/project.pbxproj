@@ -140,14 +140,11 @@
 		009F10361B946A630004EA76 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				00EE029E1C64A64F0070F142 /* Controllers */,
+				00EE02A01C64A6770070F142 /* Helpers */,
+				00EE02A11C64A67E0070F142 /* Models */,
+				00EE029F1C64A66C0070F142 /* Presenters */,
 				002487181BE00FD90092900B /* Views */,
-				009F10231B94657D0004EA76 /* AppDelegate.swift */,
-				009F10271B94657D0004EA76 /* MarkdownDocument.swift */,
-				000516FA1B948CD400BCFD09 /* MarkdownParser.swift */,
-				005103A71B95B1E1006F04C9 /* RenderViewModel.swift */,
-				005103A51B95B13F006F04C9 /* WindowController.swift */,
-				009627891B975C6700E0A79D /* Regex.swift */,
-				00F47CA41B99BF4500663B03 /* FileWatcher.swift */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -160,6 +157,41 @@
 				009F10371B946B070004EA76 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		00EE029E1C64A64F0070F142 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				009F10231B94657D0004EA76 /* AppDelegate.swift */,
+				005103A51B95B13F006F04C9 /* WindowController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		00EE029F1C64A66C0070F142 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				005103A71B95B1E1006F04C9 /* RenderViewModel.swift */,
+			);
+			name = Presenters;
+			sourceTree = "<group>";
+		};
+		00EE02A01C64A6770070F142 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				009627891B975C6700E0A79D /* Regex.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		00EE02A11C64A67E0070F142 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				009F10271B94657D0004EA76 /* MarkdownDocument.swift */,
+				000516FA1B948CD400BCFD09 /* MarkdownParser.swift */,
+				00F47CA41B99BF4500663B03 /* FileWatcher.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

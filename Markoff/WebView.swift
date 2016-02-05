@@ -1,8 +1,6 @@
 import WebKit
 
 class WebView: WKWebView {
-  let contentOffset = 0.0
-
   init(frame: CGRect) {
     let config = WKWebViewConfiguration()
     config.userContentController = WKUserContentController()
@@ -11,7 +9,7 @@ class WebView: WKWebView {
     config.userContentController.addUserScript(autoScrollScript)
 
     #if DEBUG
-      config.preferences.setValue(true, forKey: "developerExtrasEnabled")
+    config.preferences.setValue(true, forKey: "developerExtrasEnabled")
     #endif
 
     super.init(frame: frame, configuration: config)

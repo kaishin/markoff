@@ -13,4 +13,8 @@ class WindowController: NSWindowController {
       }).start()
     }
   }
+
+  var markdownDocument: MarkdownDocument? {
+    return document as? MarkdownDocument
+  }
 }

@@ -21,6 +21,7 @@ class RenderViewController: NSViewController {
   override func viewDidAppear() {
     super.viewDidAppear()
     listenToDocumentChangeSignal()
+    registerWindowName()
 
     guard let document = view.window?.windowController?.document as? MarkdownDocument else { return }
     self.viewModel = RenderViewModel(HTMLString: document.HTML.value)
@@ -46,6 +47,20 @@ class RenderViewController: NSViewController {
       options: NSLayoutFormatOptions(),
       metrics: nil,
       views: ["webView": webView]))
+  }
+
+  private func registerWindowName() {
+    guard let window = view.window,
+      let document = document
+      else { return }
+    window.setFrameAutosaveName(document.path)
+  }
+
+  private var document: MarkdownDocument? {
+    guard let windowController = view.window?.windowController as? WindowController,
+      let document = windowController.markdownDocument
+      else { return nil }
+    return document
   }
 }
 
