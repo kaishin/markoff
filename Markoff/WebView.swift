@@ -1,17 +1,31 @@
 import WebKit
 
 class WebView: WKWebView {
+  var lastOffset = 0
+
   init(frame: CGRect) {
     let config = WKWebViewConfiguration()
-    config.userContentController = WKUserContentController()
-    let autoScrollCode = "window.scrollTo(0,document.body.scrollHeight);"
-    let autoScrollScript = WKUserScript(source: autoScrollCode, injectionTime: .AtDocumentEnd, forMainFrameOnly: true)
-    config.userContentController.addUserScript(autoScrollScript)
 
     #if DEBUG
     config.preferences.setValue(true, forKey: "developerExtrasEnabled")
     #endif
 
     super.init(frame: frame, configuration: config)
+  }
+
+  func update(HTML: String, baseURL: NSURL) {
+    evaluateJavaScript("window.pageYOffset") { object, error in
+      self.loadHTMLString(HTML, baseURL: baseURL)
+
+      if let offset = object as? Int {
+        self.scrollTo(offset)
+      }
+    }
+  }
+
+  private func scrollTo(YOffset: Int) {
+    let script = "window.scrollTo(0, \(YOffset));"
+    let scrollScript = WKUserScript(source: script, injectionTime: .AtDocumentEnd, forMainFrameOnly: true)
+    configuration.userContentController.addUserScript(scrollScript)
   }
 }

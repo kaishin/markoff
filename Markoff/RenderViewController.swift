@@ -9,7 +9,10 @@ class RenderViewController: NSViewController {
 
   var viewModel: RenderViewModel? {
     didSet {
-      webView.loadHTMLString(viewModel!.fullPageString, baseURL: viewModel!.baseURL)
+      guard let HTML = viewModel?.fullPageString,
+        let URL = viewModel?.baseURL
+        else { return }
+      webView.update(HTML, baseURL: URL)
     }
   }
 
