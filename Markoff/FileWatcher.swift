@@ -1,5 +1,6 @@
 import Foundation
 import ReactiveCocoa
+import Result
 
 public class FileWatcher {
   public static let (eventSignal, eventSink) = Signal<String, NoError>.pipe()

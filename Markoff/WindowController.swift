@@ -1,5 +1,6 @@
 import AppKit
 import ReactiveCocoa
+import Result
 
 class WindowController: NSWindowController {
   let (documentChangeSignal, documentChangeSink) = Signal<String, NoError>.pipe()
