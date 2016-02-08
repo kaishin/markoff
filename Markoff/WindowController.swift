@@ -7,11 +7,8 @@ class WindowController: NSWindowController {
 
   override var document: AnyObject? {
     didSet {
-      guard let markdownDocument = document as? MarkdownDocument else { return }
-
-      markdownDocument.HTML.producer.on(next: { HTML in
-        self.documentChangeSink.sendNext(HTML)
-      }).start()
+      guard let markdownDocument = markdownDocument else { return }
+      markdownDocument.HTML.producer.start(documentChangeSink)
     }
   }
 
