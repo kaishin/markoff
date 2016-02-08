@@ -1,7 +1,7 @@
 ---
 title: "Sample Markdown Document"
-tags: "tag-1", "tag-2", "tag-3"
-author: Reda Lemeden
+tags: tag-one, tag-two, tag-three
+author: "Reda Lemeden"
 ---
 
 # Chapter 1
