@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <scenes>
@@ -673,24 +674,40 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-MT-rQ7">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="26"/>
                                 <subviews>
                                     <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oM-eX-dpn">
-                                        <rect key="frame" x="0.0" y="0.0" width="480" height="24"/>
-                                        <middleViews>
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="26"/>
+                                        <edgeInsets key="edgeInsets" left="8" right="4" top="0.0" bottom="0.0"/>
+                                        <beginningViews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHX-bb-LQP">
-                                                <rect key="frame" x="197.5" y="3.5" width="85" height="17"/>
+                                                <rect key="frame" x="6" y="6" width="85" height="14"/>
                                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metadata Label" id="kxO-KS-Eds">
                                                     <font key="font" metaFont="smallSystem"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                        </middleViews>
+                                        </beginningViews>
+                                        <endViews>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
+                                                <rect key="frame" x="456" y="2" width="20" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="G3Q-k0-hOL"/>
+                                                    <constraint firstAttribute="width" constant="20" id="b4A-AV-SOQ"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="OpenInEditor" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DbW-tF-EBG">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                </buttonCell>
+                                            </button>
+                                        </endViews>
                                         <visibilityPriorities>
+                                            <integer value="1000"/>
                                             <integer value="1000"/>
                                         </visibilityPriorities>
                                         <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
                                             <real value="3.4028234663852886e+38"/>
                                         </customSpacing>
                                     </stackView>
@@ -700,7 +717,7 @@
                                     <constraint firstItem="7oM-eX-dpn" firstAttribute="leading" secondItem="oVS-MT-rQ7" secondAttribute="leading" id="fzc-fC-DOV"/>
                                     <constraint firstItem="7oM-eX-dpn" firstAttribute="top" secondItem="oVS-MT-rQ7" secondAttribute="top" id="gxj-6n-ZLk"/>
                                     <constraint firstAttribute="bottom" secondItem="7oM-eX-dpn" secondAttribute="bottom" id="qIj-1n-cWA"/>
-                                    <constraint firstAttribute="height" constant="24" id="yIm-Xp-DPr"/>
+                                    <constraint firstAttribute="height" constant="26" id="yIm-Xp-DPr"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
@@ -719,4 +736,7 @@
             <point key="canvasLocation" x="75" y="655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="OpenInEditor" width="32" height="32"/>
+    </resources>
 </document>
