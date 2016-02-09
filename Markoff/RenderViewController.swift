@@ -2,6 +2,8 @@ import Cocoa
 import WebKit
 
 class RenderViewController: NSViewController {
+  @IBOutlet weak var metadataLabel: NSTextField!
+
   let parser = MarkdownParser()
   lazy var webView: WebView = {
     return WebView(frame: self.view.bounds)
@@ -12,7 +14,10 @@ class RenderViewController: NSViewController {
       guard let HTML = viewModel?.fullPageString,
         let URL = viewModel?.baseURL
         else { return }
-      webView.update(HTML, baseURL: URL)
+      onMain {
+        self.webView.update(HTML, baseURL: URL)
+        self.metadataLabel?.stringValue = self.viewModel!.metadata
+      }
     }
   }
 
@@ -39,7 +44,7 @@ class RenderViewController: NSViewController {
   }
 
   private func setupWebView() {
-    view.addSubview(webView)
+    view.addSubview(webView, positioned: .Below, relativeTo: view.subviews[0])
     webView.translatesAutoresizingMaskIntoConstraints = false
 
     view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|",

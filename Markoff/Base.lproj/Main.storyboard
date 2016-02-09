@@ -671,7 +671,48 @@
                     <view key="view" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-MT-rQ7">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="24"/>
+                                <subviews>
+                                    <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oM-eX-dpn">
+                                        <rect key="frame" x="0.0" y="0.0" width="480" height="24"/>
+                                        <middleViews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHX-bb-LQP">
+                                                <rect key="frame" x="197.5" y="3.5" width="85" height="17"/>
+                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metadata Label" id="kxO-KS-Eds">
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </middleViews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="7oM-eX-dpn" secondAttribute="trailing" id="Log-oU-1fA"/>
+                                    <constraint firstItem="7oM-eX-dpn" firstAttribute="leading" secondItem="oVS-MT-rQ7" secondAttribute="leading" id="fzc-fC-DOV"/>
+                                    <constraint firstItem="7oM-eX-dpn" firstAttribute="top" secondItem="oVS-MT-rQ7" secondAttribute="top" id="gxj-6n-ZLk"/>
+                                    <constraint firstAttribute="bottom" secondItem="7oM-eX-dpn" secondAttribute="bottom" id="qIj-1n-cWA"/>
+                                    <constraint firstAttribute="height" constant="24" id="yIm-Xp-DPr"/>
+                                </constraints>
+                            </visualEffectView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oVS-MT-rQ7" secondAttribute="bottom" id="0xz-Tk-R0L"/>
+                            <constraint firstAttribute="trailing" secondItem="oVS-MT-rQ7" secondAttribute="trailing" id="i47-pb-cFK"/>
+                            <constraint firstItem="oVS-MT-rQ7" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="icC-B8-Pjh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="metadataLabel" destination="rHX-bb-LQP" id="856-Vw-Z3f"/>
+                    </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

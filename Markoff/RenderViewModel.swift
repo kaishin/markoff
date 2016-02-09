@@ -9,4 +9,8 @@ struct RenderViewModel {
     let templateContent = try! NSString(contentsOfURL: baseURL, encoding: NSUTF8StringEncoding)
     fullPageString = templateContent.stringByReplacingOccurrencesOfString("$PLACEHOLDER", withString: HTMLString)
   }
+
+  var metadata: String {
+    return "Words: \(fullPageString.wordCount) – Characters: \(fullPageString.characterCount)"
+  }
 }

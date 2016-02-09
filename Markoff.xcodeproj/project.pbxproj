@@ -25,6 +25,8 @@
 		009F102A1B94657D0004EA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009F10291B94657D0004EA76 /* Assets.xcassets */; };
 		009F102D1B94657D0004EA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009F102B1B94657D0004EA76 /* Main.storyboard */; };
 		009F10381B946B070004EA76 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009F10371B946B070004EA76 /* WebKit.framework */; };
+		00A2ABBC1C69E4B20099A7E2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2ABBB1C69E4B20099A7E2 /* String.swift */; };
+		00A2ABBE1C69F9950099A7E2 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2ABBD1C69F9950099A7E2 /* GCD.swift */; };
 		00F47CA51B99BF4500663B03 /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F47CA41B99BF4500663B03 /* FileWatcher.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		009F102E1B94657D0004EA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009F10371B946B070004EA76 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		009F10491B9477300004EA76 /* Markoff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Markoff.entitlements; sourceTree = "<group>"; };
+		00A2ABBB1C69E4B20099A7E2 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		00A2ABBD1C69F9950099A7E2 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		00F47CA41B99BF4500663B03 /* FileWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileWatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				00EE029E1C64A64F0070F142 /* Controllers */,
+				00A2ABBA1C69E4A30099A7E2 /* Extensions */,
 				00EE02A01C64A6770070F142 /* Helpers */,
 				00EE02A11C64A67E0070F142 /* Models */,
 				00EE029F1C64A66C0070F142 /* Presenters */,
@@ -157,6 +162,14 @@
 				009F10371B946B070004EA76 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		00A2ABBA1C69E4A30099A7E2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				00A2ABBB1C69E4B20099A7E2 /* String.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		00EE029E1C64A64F0070F142 /* Controllers */ = {
@@ -180,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				009627891B975C6700E0A79D /* Regex.swift */,
+				00A2ABBD1C69F9950099A7E2 /* GCD.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -294,10 +308,12 @@
 			files = (
 				009F10261B94657D0004EA76 /* RenderViewController.swift in Sources */,
 				005103A61B95B13F006F04C9 /* WindowController.swift in Sources */,
+				00A2ABBC1C69E4B20099A7E2 /* String.swift in Sources */,
 				00F47CA51B99BF4500663B03 /* FileWatcher.swift in Sources */,
 				005103A81B95B1E1006F04C9 /* RenderViewModel.swift in Sources */,
 				0096278A1B975C6700E0A79D /* Regex.swift in Sources */,
 				009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */,
+				00A2ABBE1C69F9950099A7E2 /* GCD.swift in Sources */,
 				009F10281B94657D0004EA76 /* MarkdownDocument.swift in Sources */,
 				0024871A1BE00FF40092900B /* WebView.swift in Sources */,
 				000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */,
@@ -411,6 +427,7 @@
 				);
 				INFOPLIST_FILE = Markoff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Markoff;
@@ -431,6 +448,7 @@
 				);
 				INFOPLIST_FILE = Markoff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thoughtbot.Markoff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
