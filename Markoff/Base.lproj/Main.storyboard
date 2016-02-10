@@ -22,7 +22,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="oxv-Nq-td7" kind="show" id="oMf-dB-opH"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -645,7 +649,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Markoff" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="75.5" y="-102"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -734,6 +738,76 @@
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Preferences View-->
+        <scene sceneID="hSM-Xh-3rb">
+            <objects>
+                <viewController id="4T1-of-Jku" customClass="PreferencesView" customModule="Markoff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="NUU-az-gBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="309" height="60"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RjX-ng-8Gt">
+                                <rect key="frame" x="18" y="23" width="119" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="External text editor" id="WEd-HE-8BT">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cya-ch-poJ" userLabel="Editors">
+                                <rect key="frame" x="145" y="16" width="147" height="26"/>
+                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="v8Z-sd-3tO" userLabel="Editors">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="tSy-Ea-6BS"/>
+                                    <connections>
+                                        <binding destination="Vf5-0I-ABI" name="contentValues" keyPath="arrangedObjects" id="1eR-hK-UQU"/>
+                                    </connections>
+                                </popUpButtonCell>
+                                <connections>
+                                    <binding destination="Vf5-0I-ABI" name="content" keyPath="arrangedObjects" id="1gZ-5v-fHM"/>
+                                    <binding destination="4T1-of-Jku" name="selectedObject" keyPath="defaultEditor" previousBinding="1gZ-5v-fHM" id="xgT-6e-DaX"/>
+                                </connections>
+                            </popUpButton>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="cya-ch-poJ" firstAttribute="centerY" secondItem="RjX-ng-8Gt" secondAttribute="centerY" constant="2" id="5uF-xc-i0t"/>
+                            <constraint firstAttribute="trailing" secondItem="cya-ch-poJ" secondAttribute="trailing" constant="20" id="7e8-cg-tEI"/>
+                            <constraint firstItem="RjX-ng-8Gt" firstAttribute="leading" secondItem="NUU-az-gBZ" secondAttribute="leading" constant="20" id="NeH-qn-mi6"/>
+                            <constraint firstItem="cya-ch-poJ" firstAttribute="leading" secondItem="RjX-ng-8Gt" secondAttribute="trailing" constant="12" id="l1B-mQ-DbX"/>
+                            <constraint firstItem="RjX-ng-8Gt" firstAttribute="top" secondItem="NUU-az-gBZ" secondAttribute="top" constant="20" id="qyb-Mt-h88"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="rf6-3j-USy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="Editor" id="Vf5-0I-ABI">
+                    <connections>
+                        <binding destination="4T1-of-Jku" name="contentArray" keyPath="editors" id="geI-7x-Rkx"/>
+                    </connections>
+                </arrayController>
+                <userDefaultsController representsSharedInstance="YES" id="H8h-oj-Upf"/>
+            </objects>
+            <point key="canvasLocation" x="-460.5" y="550"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="sP8-bX-fUz">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="oxv-Nq-td7" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="y8f-cH-fh7">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <rect key="contentRect" x="303" y="240" width="380" height="60"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+                        <value key="minSize" type="size" width="380" height="60"/>
+                        <value key="maxSize" type="size" width="500" height="60"/>
+                    </window>
+                    <connections>
+                        <segue destination="4T1-of-Jku" kind="relationship" relationship="window.shadowedContentViewController" id="xZT-oC-aFG"/>
+                    </connections>
+                </windowController>
+                <customObject id="0vT-eb-keb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-461" y="145"/>
         </scene>
     </scenes>
     <resources>
