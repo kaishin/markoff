@@ -25,11 +25,13 @@ class PreferencesController {
 
     set {
       defaults["defaultEditorPath"] = newValue.path.absoluteString
+      defaults["defaultEditorName"] = newValue.name
     }
   }
 
   func registerDefaults() {
     guard let defaultEditor = editors.last else { return }
     defaults.registerDefaults(["defaultEditorPath": defaultEditor.path.absoluteString])
+    defaults.registerDefaults(["defaultEditorName": defaultEditor.name])
   }
 }

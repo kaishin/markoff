@@ -2,6 +2,7 @@ import Cocoa
 import WebKit
 
 class RenderViewController: NSViewController {
+  @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
   let parser = MarkdownParser()
@@ -24,6 +25,7 @@ class RenderViewController: NSViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupWebView()
+    openButton.toolTip = "Open with \(PreferencesController().defaultEditor.name)"
   }
 
   override func viewDidAppear() {

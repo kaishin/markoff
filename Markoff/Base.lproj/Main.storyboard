@@ -73,6 +73,11 @@
                                                 <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="Open with Editor" keyEquivalent="e" id="lDn-7J-Vq3">
+                                            <connections>
+                                                <action selector="openInEditor:" target="Ady-hI-5gd" id="R57-HV-vlw"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Open Recent" id="tXI-mr-wws">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
@@ -87,14 +92,14 @@
                                             </menu>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
                                             <connections>
                                                 <action selector="saveDocument:" target="Ady-hI-5gd" id="teZ-XB-qJY"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
+                                            <connections>
+                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
@@ -694,8 +699,8 @@
                                             </textField>
                                         </beginningViews>
                                         <endViews>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
-                                                <rect key="frame" x="456" y="2" width="20" height="21"/>
+                                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
+                                                <rect key="frame" x="97" y="3" width="379" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="G3Q-k0-hOL"/>
                                                     <constraint firstAttribute="width" constant="20" id="b4A-AV-SOQ"/>
@@ -704,6 +709,9 @@
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="smallSystem"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="openInEditor:" target="2Tp-Fl-jBw" id="fBI-3d-HhY"/>
+                                                </connections>
                                             </button>
                                         </endViews>
                                         <visibilityPriorities>
@@ -733,6 +741,7 @@
                     </view>
                     <connections>
                         <outlet property="metadataLabel" destination="rHX-bb-LQP" id="856-Vw-Z3f"/>
+                        <outlet property="openButton" destination="6uh-fi-xtf" id="zSS-1f-3TK"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -756,7 +765,7 @@
                                 </textFieldCell>
                             </textField>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cya-ch-poJ" userLabel="Editors">
-                                <rect key="frame" x="145" y="16" width="147" height="26"/>
+                                <rect key="frame" x="145" y="17" width="147" height="26"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="v8Z-sd-3tO" userLabel="Editors">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -772,7 +781,7 @@
                             </popUpButton>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="cya-ch-poJ" firstAttribute="centerY" secondItem="RjX-ng-8Gt" secondAttribute="centerY" constant="2" id="5uF-xc-i0t"/>
+                            <constraint firstItem="cya-ch-poJ" firstAttribute="centerY" secondItem="RjX-ng-8Gt" secondAttribute="centerY" constant="1" id="5uF-xc-i0t"/>
                             <constraint firstAttribute="trailing" secondItem="cya-ch-poJ" secondAttribute="trailing" constant="20" id="7e8-cg-tEI"/>
                             <constraint firstItem="RjX-ng-8Gt" firstAttribute="leading" secondItem="NUU-az-gBZ" secondAttribute="leading" constant="20" id="NeH-qn-mi6"/>
                             <constraint firstItem="cya-ch-poJ" firstAttribute="leading" secondItem="RjX-ng-8Gt" secondAttribute="trailing" constant="12" id="l1B-mQ-DbX"/>
