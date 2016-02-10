@@ -56,7 +56,8 @@ class MarkdownParser: NSObject {
     if result.isMatching {
       let frontMatter = result.matches[0]
       let codeBlockString = frontMatter.stringByReplacingOccurrencesOfString("---", withString: "~~~")
-      return markdown.stringByReplacingOccurrencesOfString(frontMatter, withString: codeBlockString)
+      let hiddenMarkup = "<hr id='markoff-frontmatter-rule'>\n\n"
+      return markdown.stringByReplacingOccurrencesOfString(frontMatter, withString: hiddenMarkup + codeBlockString)
     } else {
       return markdown
     }

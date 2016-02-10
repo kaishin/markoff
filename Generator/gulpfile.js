@@ -35,7 +35,7 @@ gulp.task("develop", function() {
 })
 
 gulp.task("build", function() {
-  runSequence(["generate-css", "minify-scripts", "vendorize-scripts"], "jekyll-build", "minify-html")
+  runSequence(["generate-css", "minify-scripts", "vendorize-scripts"], "jekyll-build", "minify-html", "copy-sample")
 })
 
 gulp.task("rebuild", function() {
@@ -117,6 +117,11 @@ gulp.task("vendorize-scripts", function() {
   .pipe(browserSync.reload({
     stream: true
   }))
+})
+
+gulp.task("copy-sample", function() {
+  gulp.src("./sample.md")
+  .pipe(gulp.dest(targetFolder))
 })
 
 gulp.task("browser-sync", function() {
