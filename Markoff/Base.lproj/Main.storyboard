@@ -699,8 +699,8 @@
                                             </textField>
                                         </beginningViews>
                                         <endViews>
-                                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
-                                                <rect key="frame" x="97" y="3" width="379" height="19"/>
+                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
+                                                <rect key="frame" x="456" y="2" width="20" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="G3Q-k0-hOL"/>
                                                     <constraint firstAttribute="width" constant="20" id="b4A-AV-SOQ"/>
