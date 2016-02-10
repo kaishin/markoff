@@ -48,6 +48,7 @@ class RenderViewController: NSViewController {
   private func setupWebView() {
     view.addSubview(webView, positioned: .Below, relativeTo: view.subviews[0])
     webView.translatesAutoresizingMaskIntoConstraints = false
+    webView.navigationDelegate = self
 
     view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|",
       options: NSLayoutFormatOptions(),
@@ -74,3 +75,24 @@ class RenderViewController: NSViewController {
   }
 }
 
+extension RenderViewController: WKNavigationDelegate {
+  func webView(webView: WKWebView,
+    decidePolicyForNavigationAction navigationAction: WKNavigationAction,
+    decisionHandler: (WKNavigationActionPolicy) -> Void) {
+
+    switch navigationAction.navigationType {
+    case .LinkActivated:
+      guard let url = navigationAction.request.URL else { return }
+      let localPageURL = NSBundle.mainBundle().URLForResource("index", withExtension: "html", subdirectory: "Template")!
+      let urlStringWithoutFragment = url.absoluteString.stringByReplacingOccurrencesOfString("#" + (url.fragment ?? ""), withString: "")
+      if urlStringWithoutFragment == localPageURL.absoluteString {
+        decisionHandler(.Allow)
+      } else {
+        decisionHandler(.Cancel)
+        NSWorkspace.sharedWorkspace().openURL(url)
+      }
+    default:
+      decisionHandler(.Allow)
+    }
+  }
+}

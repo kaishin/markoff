@@ -9,6 +9,8 @@ author: "Reda Lemeden"
 
 Call me Ishmael. Some years ago- never mind how long precisely- having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world. It is a way I have of driving off the spleen and regulating the circulation.
 
+<div id="anchor"></div>
+
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
 look like:
 
@@ -57,7 +59,7 @@ Now a nested list:
 
 Here's a link to [a website](http://foo.bar), to a [local
 doc](local-doc.html), and to a [section heading in the current
-doc](#an-h2-header).
+doc](#anchor).
 
 #### Image
 
