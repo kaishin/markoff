@@ -52,7 +52,7 @@ class MarkdownParser: NSObject {
   }
 
   private func transformFrontMatter(markdown: String) -> String {
-    let result = markdown =~ "-{3}[a-z]*\n[\\s\\S]*?\n-{3}"
+    let result = markdown =~ "^-{3}\n[\\s\\S]*?\n-{3}\n"
     if result.isMatching {
       let frontMatter = result.matches[0]
       let codeBlockString = frontMatter.stringByReplacingOccurrencesOfString("---", withString: "~~~")
