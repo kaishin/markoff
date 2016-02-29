@@ -15,11 +15,11 @@ your editor, you might be able to set up auto-save to get an always up-to-date
 preview without manually saving.
 - Shows basic information such word and character count.
 
-[![Download on the App Store](appstore.svg)](https://itunes.apple.com/us/app/markoff/id1084713122)
+[![Download on the App Store](https://cdn.rawgit.com/thoughtbot/Markoff/master/appstore.svg)](https://itunes.apple.com/us/app/markoff/id1084713122)
 
 ## Setup
 
-Make sure you have Carthage installed, then run in the project root:
+Make sure you have [Carthage] installed, then run in the project root:
 
 ~~~shell
 carthage update --platform mac
@@ -29,10 +29,10 @@ carthage update --platform mac
 
 See LICENSE file.
 
-![thoughtbot](https://thoughtbot.com/logo.png)
-
 Markoff is maintained and funded by thoughtbot, inc.
 The names and logos for thoughtbot are trademarks of thoughtbot, inc.
+
+![thoughtbot](https://thoughtbot.com/logo.svg)
 
 We can help you with OS X development, ReactiveCocoa, Swift, and more. [Get in touch][hire].
 
@@ -42,4 +42,5 @@ We can help you with OS X development, ReactiveCocoa, Swift, and more. [Get in t
 [community]: https://thoughtbot.com/community?utm_source=github
 [highlight.js]: https://highlightjs.org
 [hire]: https://thoughtbot.com/hire-us?utm_source=github
-[LICENSE]: LICENSE
+[LICENSE]: https://raw.githubusercontent.com/thoughtbot/Markoff/master/LICENSE
+[Carthage]: https://github.com/Carthage/Carthage
