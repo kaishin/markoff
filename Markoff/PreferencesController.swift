@@ -4,8 +4,7 @@ class PreferencesController {
   let defaults = NSUserDefaults.standardUserDefaults()
 
   lazy var editors: [Editor] = {
-    let URL = NSBundle.mainBundle().URLForResource("sample", withExtension: "md", subdirectory: "Template")!
-    let editorURLArray = LSCopyApplicationURLsForURL(URL as CFURL, LSRolesMask.Editor)!.takeUnretainedValue() as NSArray
+    let editorURLArray = LSCopyApplicationURLsForURL(self.sampleFileURL as CFURL, LSRolesMask.Editor)!.takeUnretainedValue() as NSArray
     let editorURLs = editorURLArray as? [NSURL] ?? []
 
     return editorURLs.map { URL in
@@ -29,8 +28,22 @@ class PreferencesController {
     }
   }
 
+  private lazy var sampleFileURL: NSURL = {
+    return NSBundle.mainBundle().URLForResource("sample", withExtension: "md", subdirectory: "Template")!
+  }()
+
+  private var systemDefaultEditor: Editor? {
+    let defaultEditorCFURL = LSCopyDefaultApplicationURLForURL(sampleFileURL as CFURL, .Editor, nil)?.takeUnretainedValue()
+
+    guard let systemDefaultEditorURL = defaultEditorCFURL as NSURL?,
+      let systemDefaultEditorName: String = (try? systemDefaultEditorURL.resourceValuesForKeys([NSURLLocalizedNameKey])[NSURLLocalizedNameKey]) as? String
+      else { return .None }
+
+    return Editor(name: systemDefaultEditorName, path: systemDefaultEditorURL)
+  }
+
   func registerDefaults() {
-    guard let defaultEditor = editors.last else { return }
+    guard let defaultEditor = systemDefaultEditor ?? editors.last else { return }
     defaults.registerDefaults(["defaultEditorPath": defaultEditor.path.absoluteString])
     defaults.registerDefaults(["defaultEditorName": defaultEditor.name])
   }
