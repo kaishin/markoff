@@ -21,6 +21,10 @@ class RenderViewController: NSViewController {
     }
   }
 
+  private var markdownDocument: MarkdownDocument? {
+    return view.window?.windowController?.document as? MarkdownDocument
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setupWebView()
@@ -32,15 +36,16 @@ class RenderViewController: NSViewController {
     listenToDocumentChangeSignal()
     registerWindowName()
 
-    guard let document = view.window?.windowController?.document as? MarkdownDocument else { return }
-    self.viewModel = RenderViewModel(HTMLString: document.HTML.value)
+    guard let document = markdownDocument else { return }
+    self.viewModel = RenderViewModel(document: document)
   }
 
   private func listenToDocumentChangeSignal() {
     guard let windowController = view.window?.windowController as? WindowController else { return }
 
     windowController.documentChangeSignal.observeNext { output in
-      self.viewModel = RenderViewModel(HTMLString: output)
+      guard let document = self.markdownDocument else { return }
+      self.viewModel = RenderViewModel(filePath: document.path, HTMLString: output)
     }
   }
 
