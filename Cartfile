@@ -1,1 +1,2 @@
 github "ReactiveCocoa/ReactiveCocoa" ~> 4.0.0
+github "Pyroh/SwiftMark" ~> 0.9

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000516F91B948CC300BCFD09 /* cmark in Resources */ = {isa = PBXBuildFile; fileRef = 000516F81B948CC300BCFD09 /* cmark */; };
 		000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000516FA1B948CD400BCFD09 /* MarkdownParser.swift */; };
 		0024871A1BE00FF40092900B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002487191BE00FF40092900B /* WebView.swift */; };
 		005103A61B95B13F006F04C9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005103A51B95B13F006F04C9 /* WindowController.swift */; };
@@ -16,7 +15,8 @@
 		005103AC1B95BDD0006F04C9 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		005103AD1B95BDD0006F04C9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005103AA1B95BDD0006F04C9 /* Result.framework */; };
 		005103AE1B95BDD0006F04C9 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005103AA1B95BDD0006F04C9 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0053089F1BCFDB1700BA6B7E /* cmark.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 0053089E1BCFDB1700BA6B7E /* cmark.entitlements */; };
+		00646E531C872A71000CF868 /* SwiftMark.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00646E521C872A71000CF868 /* SwiftMark.framework */; };
+		00646E551C872A78000CF868 /* SwiftMark.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00646E521C872A71000CF868 /* SwiftMark.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		008847741C6CD0ED004347A5 /* Support Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008847731C6CD0ED004347A5 /* Support Controller.swift */; };
 		009627881B97384300E0A79D /* Template in Resources */ = {isa = PBXBuildFile; fileRef = 009627871B97384300E0A79D /* Template */; };
 		0096278A1B975C6700E0A79D /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009627891B975C6700E0A79D /* Regex.swift */; };
@@ -43,6 +43,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				005103AC1B95BDD0006F04C9 /* ReactiveCocoa.framework in Embed Frameworks */,
+				00646E551C872A78000CF868 /* SwiftMark.framework in Embed Frameworks */,
 				005103AE1B95BDD0006F04C9 /* Result.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -51,14 +52,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		000516F81B948CC300BCFD09 /* cmark */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cmark; sourceTree = "<group>"; };
 		000516FA1B948CD400BCFD09 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
 		002487191BE00FF40092900B /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		005103A51B95B13F006F04C9 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		005103A71B95B1E1006F04C9 /* RenderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewModel.swift; sourceTree = "<group>"; };
 		005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = ../Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		005103AA1B95BDD0006F04C9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = ../Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		0053089E1BCFDB1700BA6B7E /* cmark.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = cmark.entitlements; sourceTree = "<group>"; };
+		00646E521C872A71000CF868 /* SwiftMark.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftMark.framework; path = Carthage/Build/Mac/SwiftMark.framework; sourceTree = SOURCE_ROOT; };
 		008847731C6CD0ED004347A5 /* Support Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Support Controller.swift"; sourceTree = "<group>"; };
 		009627871B97384300E0A79D /* Template */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Template; sourceTree = SOURCE_ROOT; };
 		009627891B975C6700E0A79D /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -88,6 +88,7 @@
 				005103AD1B95BDD0006F04C9 /* Result.framework in Frameworks */,
 				009F10381B946B070004EA76 /* WebKit.framework in Frameworks */,
 				005103AB1B95BDD0006F04C9 /* ReactiveCocoa.framework in Frameworks */,
+				00646E531C872A71000CF868 /* SwiftMark.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,10 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				009627871B97384300E0A79D /* Template */,
-				000516F81B948CC300BCFD09 /* cmark */,
 				009F10291B94657D0004EA76 /* Assets.xcassets */,
 				009F10491B9477300004EA76 /* Markoff.entitlements */,
-				0053089E1BCFDB1700BA6B7E /* cmark.entitlements */,
 				009F102E1B94657D0004EA76 /* Info.plist */,
 			);
 			name = Resources;
@@ -168,6 +167,7 @@
 		009F10391B946B120004EA76 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00646E521C872A71000CF868 /* SwiftMark.framework */,
 				005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */,
 				005103AA1B95BDD0006F04C9 /* Result.framework */,
 				009F10371B946B070004EA76 /* WebKit.framework */,
@@ -289,9 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0053089F1BCFDB1700BA6B7E /* cmark.entitlements in Resources */,
 				009627881B97384300E0A79D /* Template in Resources */,
-				000516F91B948CC300BCFD09 /* cmark in Resources */,
 				009F102A1B94657D0004EA76 /* Assets.xcassets in Resources */,
 				009F102D1B94657D0004EA76 /* Main.storyboard in Resources */,
 			);

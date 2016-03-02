@@ -5,7 +5,6 @@ class RenderViewController: NSViewController {
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
-  let parser = MarkdownParser()
   lazy var webView: WebView = {
     return WebView(frame: self.view.bounds)
   }()

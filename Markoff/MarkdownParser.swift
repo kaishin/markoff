@@ -1,7 +1,9 @@
 import Foundation
+import SwiftMark
 
 class MarkdownParser: NSObject {
   // MARK: - Private Properties
+  let operationQueue = NSOperationQueue()
 
   private lazy var tempFileURL: NSURL = {
     let UUIDString = CFUUIDCreateString(nil, CFUUIDCreate(nil)) as String
@@ -13,24 +15,22 @@ class MarkdownParser: NSObject {
   // MARK: - Public Methods
 
   func parse(filePath: String, handler: String -> ()) {
-    writeTempFile(originalFilePath: filePath)
-
-    let task = NSTask()
-    task.arguments = [tempFileURL.path!, "--smart"]
-    task.standardOutput = NSPipe()
-    task.launchPath = NSBundle.mainBundle().pathForResource("cmark", ofType: "")!
-
-    task.terminationHandler = { task in
-      guard let outputData = task.standardOutput?.fileHandleForReading.readDataToEndOfFile(),
-        let output = NSString(data: outputData, encoding: NSUTF8StringEncoding) as? String else {
-          handler("Parsing failed.")
-          return
-      }
-
-      handler(output)
+    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) as String else {
+      return handler("Parsing failed.")
     }
 
-    task.launch()
+    let operation = SwiftMarkToHTMLOperation(text: transformFrontMatter(markdown))
+
+    operation.conversionCompleteBlock = { html in
+      handler(html)
+    }
+
+    operation.failureBlock = { error in
+      handler("Parsing failed: \(error.hashValue)")
+    }
+
+    operationQueue.cancelAllOperations()
+    operationQueue.addOperation(operation)
   }
 
   // MARK: - Lifecycle
@@ -42,14 +42,6 @@ class MarkdownParser: NSObject {
   }
 
   // MARK: - Private Methods
-
-  private func writeTempFile(originalFilePath path: String) -> Bool {
-    guard let originalData = NSData(contentsOfFile: path),
-      let originalString = NSString(data: originalData, encoding: NSUTF8StringEncoding) as? String,
-      let sanitizedData = transformFrontMatter(originalString).dataUsingEncoding(NSUTF8StringEncoding) else { return false }
-
-    return sanitizedData.writeToURL(tempFileURL, atomically: false)
-  }
 
   private func transformFrontMatter(markdown: String) -> String {
     let result = markdown =~ "^-{3}\n[\\s\\S]*?\n-{3}\n"
