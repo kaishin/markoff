@@ -1,4 +1,5 @@
-# Markoff [![GitHub release](https://img.shields.io/github/release/thoughtbot/markoff.svg)]() ![Platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
+# Markoff [![GitHub release](https://img.shields.io/github/release/thoughtbot/markoff.svg)]() ![Platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)[![codebeat](https://codebeat.co/badges/8621039b-bbc9-4201-9a48-32ade5a9a1c2)](https://codebeat.co/projects/github-com-thoughtbot-markoff)
+
 A light-weight [CommonMark] previewer for OSX.
 
 ![Screenshot](https://images.thoughtbot.com/markoff/MarkoffScreenshot.jpg)
