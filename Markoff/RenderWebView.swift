@@ -1,6 +1,6 @@
 import WebKit
 
-class WebView: WKWebView {
+class RenderWebView: WKWebView {
   var lastOffset = 0
 
   init(frame: CGRect) {
