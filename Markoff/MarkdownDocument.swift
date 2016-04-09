@@ -1,10 +1,17 @@
 import Cocoa
 import ReactiveCocoa
+import WebKit
 
 class MarkdownDocument: NSDocument {
   typealias ObservableString = MutableProperty<String>
   let parser = MarkdownParser()
   var HTML = ObservableString("")
+
+  lazy var printView: WebView = {
+    let view = WebView(frame: NSRect(x: 0, y: 0, width: 500, height: 800))
+    view.frameLoadDelegate = self
+    return view
+  }()
 
   var path: String {
     return fileURL?.path ?? ""
@@ -24,6 +31,11 @@ class MarkdownDocument: NSDocument {
     convertToHTML()
     addToWatchedPaths()
     listenToChanges()
+  }
+
+  override func printDocument(sender: AnyObject?) {
+    let viewModel = RenderViewModel(filePath: path, HTMLString: HTML.value)
+    printView.mainFrame.loadHTMLString(viewModel.fullPageString, baseURL: viewModel.baseURL)
   }
 
   deinit {
@@ -56,6 +68,14 @@ class MarkdownDocument: NSDocument {
     if let index = watcher.pathsToWatch.indexOf(path) {
       watcher.pathsToWatch.removeAtIndex(index)
     }
+  }
+}
+
+extension MarkdownDocument: WebFrameLoadDelegate {
+  func webView(sender: WebView!, didFinishLoadForFrame frame: WebFrame!) {
+    let printOperation = NSPrintOperation(view: printView, printInfo: printInfo)
+    printOperation.showsPrintPanel = true
+    printOperation.runOperation()
   }
 }
 

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000516FA1B948CD400BCFD09 /* MarkdownParser.swift */; };
-		0024871A1BE00FF40092900B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002487191BE00FF40092900B /* WebView.swift */; };
+		0024871A1BE00FF40092900B /* RenderWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002487191BE00FF40092900B /* RenderWebView.swift */; };
 		005103A61B95B13F006F04C9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005103A51B95B13F006F04C9 /* WindowController.swift */; };
 		005103A81B95B1E1006F04C9 /* RenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005103A71B95B1E1006F04C9 /* RenderViewModel.swift */; };
 		005103AB1B95BDD0006F04C9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */; };
@@ -53,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		000516FA1B948CD400BCFD09 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
-		002487191BE00FF40092900B /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		002487191BE00FF40092900B /* RenderWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderWebView.swift; sourceTree = "<group>"; };
 		005103A51B95B13F006F04C9 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		005103A71B95B1E1006F04C9 /* RenderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewModel.swift; sourceTree = "<group>"; };
 		005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = ../Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		002487181BE00FD90092900B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				002487191BE00FF40092900B /* WebView.swift */,
+				002487191BE00FF40092900B /* RenderWebView.swift */,
 				009F10251B94657D0004EA76 /* RenderViewController.swift */,
 				009750131C6B42C700D349A0 /* PreferencesView.swift */,
 			);
@@ -332,7 +332,7 @@
 				009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */,
 				00A2ABBE1C69F9950099A7E2 /* GCD.swift in Sources */,
 				009F10281B94657D0004EA76 /* MarkdownDocument.swift in Sources */,
-				0024871A1BE00FF40092900B /* WebView.swift in Sources */,
+				0024871A1BE00FF40092900B /* RenderWebView.swift in Sources */,
 				009750181C6B42EB00D349A0 /* PreferencesController.swift in Sources */,
 				000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */,
 			);

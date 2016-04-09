@@ -5,8 +5,8 @@ class RenderViewController: NSViewController {
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
-  lazy var webView: WebView = {
-    return WebView(frame: self.view.bounds)
+  lazy var webView: RenderWebView = {
+    return RenderWebView(frame: self.view.bounds)
   }()
 
   var viewModel: RenderViewModel? {
