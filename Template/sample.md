@@ -62,3 +62,21 @@ doc](#an-h2-header).
 #### Image
 
 ![example image](http://lorempixel.com/900/300)
+
+#### Equations
+
+Markoff uses [MathJax](http://docs.mathjax.org/en/latest/start.html#downloading-and-installing-mathjax) to render beautiful equations. Math expressions can be displayed in-line (e.g. $E_0 = mc^2$), or centered:
+
+$$ R_{\mu \nu} - \tfrac{1}{2}R \, g_{\mu \nu} +  \Lambda g_{\mu \nu} = \frac{8 \pi G }{c^4} T_{\mu \nu} $$
+
+To display an in-line math expression, surround the expression with ``$`` as below:
+
+```
+(...) Einstein's equation $ E_0 = mc^2 $.
+```
+
+For centered equations, ``$$``:
+
+```
+$$ {n+1\choose k} = {n\choose k} + {n \choose k-1} $$
+```
