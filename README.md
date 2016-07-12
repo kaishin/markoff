@@ -25,6 +25,20 @@ Make sure you have [Carthage] installed, then run in the project root:
 carthage update --platform mac
 ~~~
 
+## Building Binaries for Distribution
+
+To build a .app bundle:
+
+~~~shell
+make app
+~~~
+
+To build a .dmg image:
+
+~~~shell
+make dmg
+~~~
+
 ## License
 
 See LICENSE file.
