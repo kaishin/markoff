@@ -1,7 +1,5 @@
-# Markoff [![GitHub release](https://img.shields.io/github/release/thoughtbot/markoff.svg)]() ![Platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
+# Markoff [![GitHub release](https://img.shields.io/github/release/kaishin/markoff.svg)]() ![Platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
 A light-weight [CommonMark] previewer for OSX.
-
-![Screenshot](https://images.thoughtbot.com/markoff/MarkoffScreenshot.jpg)
 
 - Uses `cmark`, a [C implementation][cmark] of [CommonMark], for parsing and
 rendering. This is a lot of faster than other existing Ruby and JavaScript
@@ -15,7 +13,6 @@ your editor, you might be able to set up auto-save to get an always up-to-date
 preview without manually saving.
 - Shows basic information such word and character count.
 
-[![Download on the App Store](https://cdn.rawgit.com/thoughtbot/Markoff/master/appstore.svg)](https://itunes.apple.com/us/app/markoff/id1084713122)
 
 ## Setup
 
@@ -29,18 +26,10 @@ carthage update --platform mac
 
 See LICENSE file.
 
-Markoff is maintained and funded by thoughtbot, inc.
-The names and logos for thoughtbot are trademarks of thoughtbot, inc.
+Markoff was initially maintained and funded by [thoughtbot, inc](https://thoughtbot.com).
 
-![thoughtbot](https://thoughtbot.com/logo.svg)
-
-We can help you with OS X development, ReactiveCocoa, Swift, and more. [Get in touch][hire].
-
-[App Store]: https://itunes.apple.com/us/app/markoff/id1084713122
 [cmark]: https://github.com/jgm/cmark
 [CommonMark]: http://commonmark.org
-[community]: https://thoughtbot.com/community?utm_source=github
 [highlight.js]: https://highlightjs.org
-[hire]: https://thoughtbot.com/hire-us?utm_source=github
-[LICENSE]: https://raw.githubusercontent.com/thoughtbot/Markoff/master/LICENSE
+[LICENSE]: https://raw.githubusercontent.com/kaishin/Markoff/master/LICENSE
 [Carthage]: https://github.com/Carthage/Carthage
