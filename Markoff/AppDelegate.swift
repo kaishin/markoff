@@ -2,11 +2,11 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-  func applicationDidFinishLaunching(aNotification: NSNotification) {
+  func applicationDidFinishLaunching(_ aNotification: Notification) {
     PreferencesController().registerDefaults()
   }
 
-  @IBAction func contactSupport(sender: AnyObject) {
+  @IBAction func contactSupport(_ sender: AnyObject) {
     SupportController().contactSupport()
   }
 }

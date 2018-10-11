@@ -2,48 +2,48 @@ import Foundation
 import ReactiveCocoa
 import Result
 
-public class FileWatcher {
-  public static let (eventSignal, eventSink) = Signal<String, NoError>.pipe()
-  public static let sharedWatcher = FileWatcher()
-  public var pathsToWatch: [String] = [""] {
+open class FileWatcher {
+  open static let (eventSignal, eventSink) = Signal<String, NoError>.pipe()
+  open static let sharedWatcher = FileWatcher()
+  open var pathsToWatch: [String] = [""] {
     didSet { restart() }
   }
 
-  private var started = false
-  private var stream: FSEventStreamRef!
-  private var lastEventId = FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
+  fileprivate var started = false
+  fileprivate var stream: FSEventStreamRef!
+  fileprivate var lastEventId = FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
 
-  private let eventCallback: FSEventStreamCallback = {(
+  fileprivate let eventCallback: FSEventStreamCallback = {(
     stream: ConstFSEventStreamRef,
-    contextInfo: UnsafeMutablePointer<Void>,
+    contextInfo: UnsafeMutableRawPointer,
     numEvents: Int,
-    eventPaths: UnsafeMutablePointer<Void>,
+    eventPaths: UnsafeMutableRawPointer,
     eventFlags: UnsafePointer<FSEventStreamEventFlags>,
     eventIds: UnsafePointer<FSEventStreamEventId>
     ) in
 
-    if let paths = unsafeBitCast(eventPaths, NSArray.self) as? [String] {
+    if let paths = unsafeBitCast(eventPaths, to: NSArray.self) as? [String] {
       FileWatcher.eventSink.sendNext(paths[0])
     }
-  }
+  } as! FSEventStreamCallback
 
   deinit {
     stop()
   }
 
-  public func start() {
+  open func start() {
     guard started == false else { return }
 
     var info = self
     var context = FSEventStreamContext(version: 0, info: &info, retain: nil, release: nil, copyDescription: nil)
     let flags = UInt32(kFSEventStreamCreateFlagUseCFTypes | kFSEventStreamCreateFlagFileEvents)
-    stream = FSEventStreamCreate(kCFAllocatorDefault, eventCallback, &context, pathsToWatch, lastEventId, 0, flags)
-    FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetMain(), kCFRunLoopDefaultMode)
+    stream = FSEventStreamCreate(kCFAllocatorDefault, eventCallback, &context, pathsToWatch as CFArray, lastEventId, 0, flags)
+    FSEventStreamScheduleWithRunLoop(stream, CFRunLoopGetMain(), CFRunLoopMode.defaultMode)
     FSEventStreamStart(stream)
     started = true
   }
 
-  public func stop() {
+  open func stop() {
     guard started == true else { return }
 
     FSEventStreamStop(stream)
@@ -53,7 +53,7 @@ public class FileWatcher {
     started = false
   }
 
-  private func restart() {
+  fileprivate func restart() {
     stop()
     start()
   }

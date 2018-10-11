@@ -2,13 +2,13 @@ import Foundation
 
 struct RenderViewModel {
   let fullPageString: String
-  let baseURL: NSURL
+  let baseURL: URL
   let filePath: String
 
   init(filePath path: String, HTMLString: String) {
-    baseURL = NSBundle.mainBundle().URLForResource("index", withExtension: "html", subdirectory: "Template")!
-    let templateContent = try! NSString(contentsOfURL: baseURL, encoding: NSUTF8StringEncoding)
-    fullPageString = templateContent.stringByReplacingOccurrencesOfString("$PLACEHOLDER", withString: HTMLString)
+    baseURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Template")!
+    let templateContent = try! NSString(contentsOf: baseURL, encoding: String.Encoding.utf8.rawValue)
+    fullPageString = templateContent.replacingOccurrences(of: "$PLACEHOLDER", with: HTMLString)
     filePath = path
   }
 
@@ -17,7 +17,7 @@ struct RenderViewModel {
   }
 
   var metadata: String {
-    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) as String else {
+    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String else {
       return ""
     }
 

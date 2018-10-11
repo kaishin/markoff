@@ -13,7 +13,11 @@ class WebView: WKWebView {
     super.init(frame: frame, configuration: config)
   }
 
-  func update(HTML: String, baseURL: NSURL) {
+  required init?(coder: NSCoder) {
+      fatalError("init(coder:) has not been implemented")
+  }
+
+  func update(_ HTML: String, baseURL: URL) {
     evaluateJavaScript("window.pageYOffset") { object, error in
       self.loadHTMLString(HTML, baseURL: baseURL)
 
@@ -23,9 +27,9 @@ class WebView: WKWebView {
     }
   }
 
-  private func scrollTo(YOffset: Int) {
+  fileprivate func scrollTo(_ YOffset: Int) {
     let script = "window.scrollTo(0, \(YOffset));"
-    let scrollScript = WKUserScript(source: script, injectionTime: .AtDocumentEnd, forMainFrameOnly: true)
+    let scrollScript = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
     configuration.userContentController.addUserScript(scrollScript)
   }
 }

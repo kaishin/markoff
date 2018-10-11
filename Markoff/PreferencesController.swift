@@ -1,14 +1,14 @@
 import Foundation
 
 class PreferencesController {
-  let defaults = NSUserDefaults.standardUserDefaults()
+  let defaults = UserDefaults.standard
 
   lazy var editors: [Editor] = {
-    let editorURLArray = LSCopyApplicationURLsForURL(self.sampleFileURL as CFURL, LSRolesMask.Editor)!.takeUnretainedValue() as NSArray
-    let editorURLs = editorURLArray as? [NSURL] ?? []
+    let editorURLArray = LSCopyApplicationURLsForURL(self.sampleFileURL as CFURL, LSRolesMask.editor)!.takeUnretainedValue() as NSArray
+    let editorURLs = editorURLArray as? [URL] ?? []
 
     return editorURLs.map { URL in
-      let applicationName: String = (try? URL.resourceValuesForKeys([NSURLLocalizedNameKey])[NSURLLocalizedNameKey]) as? String ?? "Unknown Editor"
+      let applicationName: String = (try? (URL as NSURL).resourceValues(forKeys: [URLResourceKey.localizedNameKey])[URLResourceKey.localizedNameKey]) as? String ?? "Unknown Editor"
       return Editor(name: applicationName, path: URL)
     }
   }()
@@ -28,23 +28,23 @@ class PreferencesController {
     }
   }
 
-  private lazy var sampleFileURL: NSURL = {
-    return NSBundle.mainBundle().URLForResource("sample", withExtension: "md", subdirectory: "Template")!
+  fileprivate lazy var sampleFileURL: URL = {
+    return Bundle.main.url(forResource: "sample", withExtension: "md", subdirectory: "Template")!
   }()
 
-  private var systemDefaultEditor: Editor? {
-    let defaultEditorCFURL = LSCopyDefaultApplicationURLForURL(sampleFileURL as CFURL, .Editor, nil)?.takeUnretainedValue()
+  fileprivate var systemDefaultEditor: Editor? {
+    let defaultEditorCFURL = LSCopyDefaultApplicationURLForURL(sampleFileURL as CFURL, .editor, nil)?.takeUnretainedValue()
 
-    guard let systemDefaultEditorURL = defaultEditorCFURL as NSURL?,
-      let systemDefaultEditorName: String = (try? systemDefaultEditorURL.resourceValuesForKeys([NSURLLocalizedNameKey])[NSURLLocalizedNameKey]) as? String
-      else { return .None }
+    guard let systemDefaultEditorURL = defaultEditorCFURL as URL?,
+      let systemDefaultEditorName: String = (try? (systemDefaultEditorURL as NSURL).resourceValues(forKeys: [URLResourceKey.localizedNameKey])[URLResourceKey.localizedNameKey]) as? String
+      else { return .none }
 
     return Editor(name: systemDefaultEditorName, path: systemDefaultEditorURL)
   }
 
   func registerDefaults() {
     guard let defaultEditor = systemDefaultEditor ?? editors.last else { return }
-    defaults.registerDefaults(["defaultEditorPath": defaultEditor.path.absoluteString])
-    defaults.registerDefaults(["defaultEditorName": defaultEditor.name])
+    defaults.register(defaults: ["defaultEditorPath": defaultEditor.path.absoluteString])
+    defaults.register(defaults: ["defaultEditorName": defaultEditor.name])
   }
 }

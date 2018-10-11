@@ -3,19 +3,19 @@ import SwiftMark
 
 class MarkdownParser: NSObject {
   // MARK: - Private Properties
-  let operationQueue = NSOperationQueue()
+  let operationQueue = OperationQueue()
 
-  private lazy var tempFileURL: NSURL = {
+  fileprivate lazy var tempFileURL: URL = {
     let UUIDString = CFUUIDCreateString(nil, CFUUIDCreate(nil)) as String
-    let tempDirURL = NSURL(fileURLWithPath: NSTemporaryDirectory())
-    let fileURL = tempDirURL.URLByAppendingPathComponent(UUIDString)
+    let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
+    let fileURL = tempDirURL.appendingPathComponent(UUIDString)
     return fileURL
   }()
 
   // MARK: - Public Methods
 
-  func parse(filePath: String, handler: String -> ()) {
-    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) as String else {
+  func parse(_ filePath: String, handler: @escaping (String) -> ()) {
+    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String else {
       return handler("Parsing failed.")
     }
 
@@ -37,19 +37,19 @@ class MarkdownParser: NSObject {
 
   deinit {
     do {
-      try NSFileManager.defaultManager().removeItemAtURL(tempFileURL)
+      try FileManager.default.removeItem(at: tempFileURL)
     } catch { return }
   }
 
   // MARK: - Private Methods
 
-  private func transformFrontMatter(markdown: String) -> String {
+  fileprivate func transformFrontMatter(_ markdown: String) -> String {
     let result = markdown =~ "^-{3}\n[\\s\\S]*?\n-{3}\n"
     if result.isMatching {
       let frontMatter = result.matches[0]
-      let codeBlockString = frontMatter.stringByReplacingOccurrencesOfString("---", withString: "~~~")
+      let codeBlockString = frontMatter.replacingOccurrences(of: "---", with: "~~~")
       let hiddenMarkup = "<hr id='markoff-frontmatter-rule'>\n\n"
-      return markdown.stringByReplacingOccurrencesOfString(frontMatter, withString: hiddenMarkup + codeBlockString)
+      return markdown.replacingOccurrences(of: frontMatter, with: hiddenMarkup + codeBlockString)
     } else {
       return markdown
     }

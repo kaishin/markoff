@@ -1,13 +1,13 @@
 import Foundation
 
-extension NSUserDefaults {
+extension UserDefaults {
   subscript(key: String) -> AnyObject? {
     get {
-      return self.objectForKey(key)
+      return self.object(forKey: key) as AnyObject
     }
     
     set(newValue) {
-      self.setObject(newValue, forKey: key)
+      self.set(newValue, forKey: key)
     }
   }
 }

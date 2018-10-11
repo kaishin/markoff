@@ -21,7 +21,7 @@ class RenderViewController: NSViewController {
     }
   }
 
-  private var markdownDocument: MarkdownDocument? {
+  fileprivate var markdownDocument: MarkdownDocument? {
     return view.window?.windowController?.document as? MarkdownDocument
   }
 
@@ -40,7 +40,7 @@ class RenderViewController: NSViewController {
     self.viewModel = RenderViewModel(document: document)
   }
 
-  private func listenToDocumentChangeSignal() {
+  fileprivate func listenToDocumentChangeSignal() {
     guard let windowController = view.window?.windowController as? WindowController else { return }
 
     windowController.documentChangeSignal.observeNext { output in
@@ -49,29 +49,29 @@ class RenderViewController: NSViewController {
     }
   }
 
-  private func setupWebView() {
-    view.addSubview(webView, positioned: .Below, relativeTo: view.subviews[0])
+  fileprivate func setupWebView() {
+    view.addSubview(webView, positioned: .below, relativeTo: view.subviews[0])
     webView.translatesAutoresizingMaskIntoConstraints = false
     webView.navigationDelegate = self
 
-    view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[webView]|",
+    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[webView]|",
       options: NSLayoutFormatOptions(),
       metrics: nil,
       views: ["webView": webView]))
-    view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[webView]|",
+    view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[webView]|",
       options: NSLayoutFormatOptions(),
       metrics: nil,
       views: ["webView": webView]))
   }
 
-  private func registerWindowName() {
+  fileprivate func registerWindowName() {
     guard let window = view.window,
       let document = document
       else { return }
     window.setFrameAutosaveName(document.path)
   }
 
-  private var document: MarkdownDocument? {
+  fileprivate var document: MarkdownDocument? {
     guard let windowController = view.window?.windowController as? WindowController,
       let document = windowController.markdownDocument
       else { return nil }
@@ -80,23 +80,23 @@ class RenderViewController: NSViewController {
 }
 
 extension RenderViewController: WKNavigationDelegate {
-  func webView(webView: WKWebView,
-    decidePolicyForNavigationAction navigationAction: WKNavigationAction,
-    decisionHandler: (WKNavigationActionPolicy) -> Void) {
+  func webView(_ webView: WKWebView,
+    decidePolicyFor navigationAction: WKNavigationAction,
+    decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
     switch navigationAction.navigationType {
-    case .LinkActivated:
-      guard let url = navigationAction.request.URL else { return }
-      let localPageURL = NSBundle.mainBundle().URLForResource("index", withExtension: "html", subdirectory: "Template")!
-      let urlStringWithoutFragment = url.absoluteString.stringByReplacingOccurrencesOfString("#" + (url.fragment ?? ""), withString: "")
+    case .linkActivated:
+      guard let url = navigationAction.request.url else { return }
+      let localPageURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Template")!
+      let urlStringWithoutFragment = url.absoluteString.replacingOccurrences(of: "#" + (url.fragment ?? ""), with: "")
       if urlStringWithoutFragment == localPageURL.absoluteString {
-        decisionHandler(.Allow)
+        decisionHandler(.allow)
       } else {
-        decisionHandler(.Cancel)
-        NSWorkspace.sharedWorkspace().openURL(url)
+        decisionHandler(.cancel)
+        NSWorkspace.shared().open(url)
       }
     default:
-      decisionHandler(.Allow)
+      decisionHandler(.allow)
     }
   }
 }

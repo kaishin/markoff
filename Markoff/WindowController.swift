@@ -3,11 +3,11 @@ import ReactiveCocoa
 import Result
 
 class WindowController: NSWindowController {
-  let userDefaults = NSUserDefaults.standardUserDefaults()
+  let userDefaults = UserDefaults.standard
   let (documentChangeSignal, documentChangeSink) = Signal<String, NoError>.pipe()
 
-  @IBAction func openInEditor(sender: AnyObject) {
-    guard let appCFURL = NSURL(string: userDefaults["defaultEditorPath"] as! String) as CFURL?,
+  @IBAction func openInEditor(_ sender: AnyObject) {
+    guard let appCFURL = URL(string: userDefaults["defaultEditorPath"] as! String) as CFURL?,
       let markdownDocument = document as? MarkdownDocument,
       let fileURL = markdownDocument.fileURL as CFURL? else { return }
     let unmanagedAppURL = Unmanaged<CFURL>.passUnretained(appCFURL)
@@ -17,7 +17,7 @@ class WindowController: NSWindowController {
     var launchSpec = LSLaunchURLSpec(appURL: unmanagedAppURL,
       itemURLs: unmanagedItemsURLs,
       passThruParams: nil,
-      launchFlags: LSLaunchFlags.Defaults,
+      launchFlags: LSLaunchFlags.defaults,
       asyncRefCon: nil)
 
     LSOpenFromURLSpec(&launchSpec, nil)

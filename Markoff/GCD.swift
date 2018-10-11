@@ -1,9 +1,9 @@
 import Foundation
 
-public func onMain(block: dispatch_block_t) {
-  if NSThread.isMainThread() {
+public func onMain(_ block: @escaping ()->()) {
+  if Thread.isMainThread {
     block()
   } else {
-    dispatch_async(dispatch_get_main_queue(), block)
+    DispatchQueue.main.async(execute: block)
   }
 }

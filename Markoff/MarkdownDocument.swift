@@ -16,11 +16,11 @@ class MarkdownDocument: NSDocument {
 
   override func makeWindowControllers() {
     let storyboard = NSStoryboard(name: "Main", bundle: nil)
-    let windowController = storyboard.instantiateControllerWithIdentifier("Document Window Controller") as! WindowController
+    let windowController = storyboard.instantiateController(withIdentifier: "Document Window Controller") as! WindowController
     addWindowController(windowController)
   }
 
-  override func readFromURL(url: NSURL, ofType typeName: String) throws {
+  override func read(from url: URL, ofType typeName: String) throws {
     convertToHTML()
     addToWatchedPaths()
     listenToChanges()
@@ -30,13 +30,13 @@ class MarkdownDocument: NSDocument {
     removeFromWatchedPaths()
   }
 
-  private func convertToHTML() {
+  fileprivate func convertToHTML() {
     parser.parse(path) { output in
       self.HTML.value = output
     }
   }
 
-  private func listenToChanges() {
+  fileprivate func listenToChanges() {
     let changeSignal = FileWatcher.eventSignal.filter { eventPath in
       self.path == eventPath
     }
@@ -46,15 +46,15 @@ class MarkdownDocument: NSDocument {
     }
   }
 
-  private func addToWatchedPaths() {
+  fileprivate func addToWatchedPaths() {
     FileWatcher.sharedWatcher.pathsToWatch.append(path)
   }
 
-  private func removeFromWatchedPaths() {
+  fileprivate func removeFromWatchedPaths() {
     let watcher = FileWatcher.sharedWatcher
 
-    if let index = watcher.pathsToWatch.indexOf(path) {
-      watcher.pathsToWatch.removeAtIndex(index)
+    if let index = watcher.pathsToWatch.index(of: path) {
+      watcher.pathsToWatch.remove(at: index)
     }
   }
 }

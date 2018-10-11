@@ -1,2 +1,2 @@
-github "ReactiveCocoa/ReactiveCocoa" ~> 4.0.0
-github "Pyroh/SwiftMark" ~> 0.9
+github "ReactiveCocoa/ReactiveCocoa" ~> 8.0.0
+github "iwasrobbed/Down" ~> 0.5.2
