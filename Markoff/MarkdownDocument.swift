@@ -1,5 +1,5 @@
 import Cocoa
-import ReactiveCocoa
+import ReactiveSwift
 
 class MarkdownDocument: NSDocument {
   typealias ObservableString = MutableProperty<String>
@@ -10,7 +10,7 @@ class MarkdownDocument: NSDocument {
     return fileURL?.path ?? ""
   }
 
-  override class func autosavesInPlace() -> Bool {
+  override class var autosavesInPlace: Bool {
     return true
   }
 
@@ -41,7 +41,7 @@ class MarkdownDocument: NSDocument {
       self.path == eventPath
     }
 
-    changeSignal.observeNext { eventPath in
+    changeSignal.observeResult { eventPath in
       self.convertToHTML()
     }
   }

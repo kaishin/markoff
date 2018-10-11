@@ -1,10 +1,8 @@
 import Foundation
-import SwiftMark
+import Down
 
 class MarkdownParser: NSObject {
   // MARK: - Private Properties
-  let operationQueue = OperationQueue()
-
   fileprivate lazy var tempFileURL: URL = {
     let UUIDString = CFUUIDCreateString(nil, CFUUIDCreate(nil)) as String
     let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
@@ -19,18 +17,14 @@ class MarkdownParser: NSObject {
       return handler("Parsing failed.")
     }
 
-    let operation = SwiftMarkToHTMLOperation(text: transformFrontMatter(markdown))
+    let down = Down(markdownString: transformFrontMatter(markdown))
 
-    operation.conversionCompleteBlock = { html in
+    do {
+      let html = try down.toHTML()
       handler(html)
+    } catch let error {
+      handler("Parsing failed: \(error.localizedDescription)")
     }
-
-    operation.failureBlock = { error in
-      handler("Parsing failed: \(error.hashValue)")
-    }
-
-    operationQueue.cancelAllOperations()
-    operationQueue.addOperation(operation)
   }
 
   // MARK: - Lifecycle

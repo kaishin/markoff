@@ -23,8 +23,8 @@ class PreferencesController {
     }
 
     set {
-      defaults["defaultEditorPath"] = newValue.path.absoluteString
-      defaults["defaultEditorName"] = newValue.name
+      defaults["defaultEditorPath"] = newValue.path.absoluteString as AnyObject
+      defaults["defaultEditorName"] = newValue.name as AnyObject
     }
   }
 

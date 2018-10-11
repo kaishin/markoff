@@ -1,5 +1,5 @@
 import AppKit
-import ReactiveCocoa
+import ReactiveSwift
 import Result
 
 class WindowController: NSWindowController {

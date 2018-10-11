@@ -43,9 +43,10 @@ class RenderViewController: NSViewController {
   fileprivate func listenToDocumentChangeSignal() {
     guard let windowController = view.window?.windowController as? WindowController else { return }
 
-    windowController.documentChangeSignal.observeNext { output in
-      guard let document = self.markdownDocument else { return }
-      self.viewModel = RenderViewModel(filePath: document.path, HTMLString: output)
+    windowController.documentChangeSignal.observeResult { output in
+      guard let document = self.markdownDocument,
+      let html = output.value else { return }
+      self.viewModel = RenderViewModel(filePath: document.path, HTMLString: html)
     }
   }
 
@@ -55,11 +56,11 @@ class RenderViewController: NSViewController {
     webView.navigationDelegate = self
 
     view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[webView]|",
-      options: NSLayoutFormatOptions(),
+      options: NSLayoutConstraint.FormatOptions(),
       metrics: nil,
       views: ["webView": webView]))
     view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[webView]|",
-      options: NSLayoutFormatOptions(),
+      options: NSLayoutConstraint.FormatOptions(),
       metrics: nil,
       views: ["webView": webView]))
   }
@@ -93,7 +94,7 @@ extension RenderViewController: WKNavigationDelegate {
         decisionHandler(.allow)
       } else {
         decisionHandler(.cancel)
-        NSWorkspace.shared().open(url)
+        NSWorkspace.shared.open(url)
       }
     default:
       decisionHandler(.allow)

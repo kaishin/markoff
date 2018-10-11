@@ -21,6 +21,6 @@ struct RenderViewModel {
       return ""
     }
 
-    return "Words: \(markdown.wordCount) – Characters: \(markdown.characters.count)"
+    return "Words: \(markdown.wordCount) – Characters: \(markdown.count)"
   }
 }

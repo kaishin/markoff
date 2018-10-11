@@ -12,7 +12,7 @@ struct SupportController {
 
     if let escapedSubject = escapedSubject {
       if let supportURL = URL(string: "mailto:\(email)?&subject=\(escapedSubject)") {
-        NSWorkspace.shared().open(supportURL)
+        NSWorkspace.shared.open(supportURL)
       }
     }
   }
