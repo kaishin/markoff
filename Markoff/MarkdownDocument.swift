@@ -1,13 +1,19 @@
 import Cocoa
-import ReactiveSwift
+import RxSwift
+import RxSwiftExt
+import RxCocoa
 
 class MarkdownDocument: NSDocument {
-  typealias ObservableString = MutableProperty<String>
+  var disposeBag = DisposeBag()
   let parser = MarkdownParser()
-  var HTML = ObservableString("")
+  var HTML = BehaviorSubject(value: "")
 
   var path: String {
     return fileURL?.path ?? ""
+  }
+
+  override init() {
+    super.init()
   }
 
   override class var autosavesInPlace: Bool {
@@ -30,28 +36,31 @@ class MarkdownDocument: NSDocument {
     removeFromWatchedPaths()
   }
 
-  fileprivate func convertToHTML() {
+  private func convertToHTML() {
     parser.parse(path) { output in
-      self.HTML.value = output
+      self.HTML.onNext(output)
     }
   }
 
-  fileprivate func listenToChanges() {
-    let changeSignal = FileWatcher.eventSignal.filter { eventPath in
-      self.path == eventPath
-    }
-
-    changeSignal.observeResult { eventPath in
-      self.convertToHTML()
-    }
+  private func listenToChanges() {
+    FileWatcher.shared.fileEvent
+      .filter { eventPath in
+        self.path == eventPath
+      }
+      .map { [weak self] path in
+        return self?.parser.parse(path)
+      }
+      .unwrap()
+      .bind(to: HTML)
+      .disposed(by: disposeBag)
   }
 
-  fileprivate func addToWatchedPaths() {
-    FileWatcher.sharedWatcher.pathsToWatch.append(path)
+  private func addToWatchedPaths() {
+    FileWatcher.shared.pathsToWatch.append(path)
   }
 
-  fileprivate func removeFromWatchedPaths() {
-    let watcher = FileWatcher.sharedWatcher
+  private func removeFromWatchedPaths() {
+    let watcher = FileWatcher.shared
 
     if let index = watcher.pathsToWatch.index(of: path) {
       watcher.pathsToWatch.remove(at: index)

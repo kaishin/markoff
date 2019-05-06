@@ -1,5 +1,5 @@
 # Markoff [![GitHub release](https://img.shields.io/github/release/kaishin/markoff.svg)]() ![Platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
-A light-weight [CommonMark] previewer for OSX.
+A light-weight [CommonMark] previewer for macOS.
 
 - Uses `cmark`, a [C implementation][cmark] of [CommonMark], for parsing and
 rendering. This is a lot of faster than other existing Ruby and JavaScript

@@ -1,2 +1,4 @@
-github "ReactiveCocoa/ReactiveCocoa" ~> 8.0.0
-github "iwasrobbed/Down" ~> 0.5.2
+github "ReactiveCocoa/ReactiveCocoa" ~> 10.0.0
+github "iwasrobbed/Down" ~> 0.8.0
+github "ReactiveX/RxSwift" ~> 4.0
+github "RxSwiftCommunity/RxSwiftExt"

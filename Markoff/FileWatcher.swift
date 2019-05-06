@@ -1,29 +1,33 @@
 import Foundation
-import ReactiveSwift
+import RxSwift
+import RxSwiftExt
+import RxCocoa
 import Result
 
-open class FileWatcher {
-  public static let (eventSignal, eventSink) = Signal<String, NoError>.pipe()
-  public static let sharedWatcher = FileWatcher()
-  open var pathsToWatch: [String] = [""] {
+public class FileWatcher {
+  let fileEvent = PublishSubject<String>()
+
+  public static let shared = FileWatcher()
+
+  public var pathsToWatch: [String] = [""] {
     didSet { restart() }
   }
 
-  fileprivate var started = false
-  fileprivate var stream: FSEventStreamRef!
-  fileprivate var lastEventId = FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
+  private var started = false
+  private var stream: FSEventStreamRef!
+  private var lastEventId = FSEventStreamEventId(kFSEventStreamEventIdSinceNow)
 
-  fileprivate let eventCallback: FSEventStreamCallback = { (stream, contextInfo, numEvents, eventPaths, eventFlags, eventIds) in
-    if let paths = unsafeBitCast(eventPaths, to: NSArray.self) as? [String] {
-      FileWatcher.eventSink.send(value: paths[0])
-    }
+  private let eventCallback: FSEventStreamCallback = { (stream, contextInfo, numEvents, eventPaths, eventFlags, eventIds) in
+    guard let paths = unsafeBitCast(eventPaths, to: NSArray.self) as? [String] else { return }
+    FileWatcher.shared.fileEvent.onNext(paths[0])
   }
+
 
   deinit {
     stop()
   }
 
-  open func start() {
+  public func start() {
     guard started == false else { return }
 
     var info = self
@@ -35,7 +39,7 @@ open class FileWatcher {
     started = true
   }
 
-  open func stop() {
+  public func stop() {
     guard started == true else { return }
 
     FSEventStreamStop(stream)
@@ -45,7 +49,7 @@ open class FileWatcher {
     started = false
   }
 
-  fileprivate func restart() {
+  private func restart() {
     stop()
     start()
   }

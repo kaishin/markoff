@@ -28,11 +28,11 @@ class PreferencesController {
     }
   }
 
-  fileprivate lazy var sampleFileURL: URL = {
+  private lazy var sampleFileURL: URL = {
     return Bundle.main.url(forResource: "sample", withExtension: "md", subdirectory: "Template")!
   }()
 
-  fileprivate var systemDefaultEditor: Editor? {
+  private var systemDefaultEditor: Editor? {
     let defaultEditorCFURL = LSCopyDefaultApplicationURLForURL(sampleFileURL as CFURL, .editor, nil)?.takeUnretainedValue()
 
     guard let systemDefaultEditorURL = defaultEditorCFURL as URL?,

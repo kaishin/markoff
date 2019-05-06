@@ -13,7 +13,7 @@ struct RenderViewModel {
   }
 
   init(document: MarkdownDocument) {
-    self.init(filePath: document.path, HTMLString: document.HTML.value)
+    self.init(filePath: document.path, HTMLString: (try? document.HTML.value()) ?? "ERROR")
   }
 
   var metadata: String {

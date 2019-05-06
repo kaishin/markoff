@@ -3,7 +3,7 @@ import Down
 
 class MarkdownParser: NSObject {
   // MARK: - Private Properties
-  fileprivate lazy var tempFileURL: URL = {
+  private lazy var tempFileURL: URL = {
     let UUIDString = CFUUIDCreateString(nil, CFUUIDCreate(nil)) as String
     let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory())
     let fileURL = tempDirURL.appendingPathComponent(UUIDString)
@@ -27,6 +27,20 @@ class MarkdownParser: NSObject {
     }
   }
 
+  func parse(_ filePath: String) -> String {
+    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String else {
+      return "Parsing failed."
+    }
+
+    let down = Down(markdownString: transformFrontMatter(markdown))
+
+    do {
+      return try down.toHTML()
+    } catch let error {
+      return "Parsing failed: \(error.localizedDescription)"
+    }
+  }
+
   // MARK: - Lifecycle
 
   deinit {
@@ -37,7 +51,7 @@ class MarkdownParser: NSObject {
 
   // MARK: - Private Methods
 
-  fileprivate func transformFrontMatter(_ markdown: String) -> String {
+  private func transformFrontMatter(_ markdown: String) -> String {
     let result = markdown =~ "^-{3}\n[\\s\\S]*?\n-{3}\n"
     if result.isMatching {
       let frontMatter = result.matches[0]

@@ -27,7 +27,7 @@ class WebView: WKWebView {
     }
   }
 
-  fileprivate func scrollTo(_ YOffset: Int) {
+  private func scrollTo(_ YOffset: Int) {
     let script = "window.scrollTo(0, \(YOffset));"
     let scrollScript = WKUserScript(source: script, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
     configuration.userContentController.addUserScript(scrollScript)

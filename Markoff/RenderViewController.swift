@@ -1,7 +1,11 @@
 import Cocoa
 import WebKit
+import RxSwift
+import RxSwiftExt
+import RxCocoa
 
 class RenderViewController: NSViewController {
+    var disposeBag = DisposeBag()
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
@@ -21,7 +25,7 @@ class RenderViewController: NSViewController {
     }
   }
 
-  fileprivate var markdownDocument: MarkdownDocument? {
+  private var markdownDocument: MarkdownDocument? {
     return view.window?.windowController?.document as? MarkdownDocument
   }
 
@@ -40,17 +44,14 @@ class RenderViewController: NSViewController {
     self.viewModel = RenderViewModel(document: document)
   }
 
-  fileprivate func listenToDocumentChangeSignal() {
-    guard let windowController = view.window?.windowController as? WindowController else { return }
-
-    windowController.documentChangeSignal.observeResult { output in
-      guard let document = self.markdownDocument,
-      let html = output.value else { return }
-      self.viewModel = RenderViewModel(filePath: document.path, HTMLString: html)
-    }
+  private func listenToDocumentChangeSignal() {
+    markdownDocument?.HTML.asDriver(onErrorJustReturn: "Error").drive(onNext: { output in
+      guard let document = self.markdownDocument else { return }
+      self.viewModel = RenderViewModel(filePath: document.path, HTMLString: output)
+    }).disposed(by: disposeBag)
   }
 
-  fileprivate func setupWebView() {
+  private func setupWebView() {
     view.addSubview(webView, positioned: .below, relativeTo: view.subviews[0])
     webView.translatesAutoresizingMaskIntoConstraints = false
     webView.navigationDelegate = self
@@ -65,14 +66,14 @@ class RenderViewController: NSViewController {
       views: ["webView": webView]))
   }
 
-  fileprivate func registerWindowName() {
+  private func registerWindowName() {
     guard let window = view.window,
       let document = document
       else { return }
     window.setFrameAutosaveName(document.path)
   }
 
-  fileprivate var document: MarkdownDocument? {
+  private var document: MarkdownDocument? {
     guard let windowController = view.window?.windowController as? WindowController,
       let document = windowController.markdownDocument
       else { return nil }
@@ -101,3 +102,18 @@ extension RenderViewController: WKNavigationDelegate {
     }
   }
 }
+
+extension RenderViewController {
+  final class ViewModel: NSObject {
+    internal init(fullPageString: String, baseURL: URL, filePath: String) {
+      self.fullPageString = fullPageString
+      self.baseURL = baseURL
+      self.filePath = filePath
+    }
+
+    let fullPageString: String
+    let baseURL: URL
+    let filePath: String
+  }
+}
+
