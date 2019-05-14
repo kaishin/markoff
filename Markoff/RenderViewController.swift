@@ -5,7 +5,7 @@ import RxSwiftExt
 import RxCocoa
 
 class RenderViewController: NSViewController {
-    var disposeBag = DisposeBag()
+  var disposeBag = DisposeBag()
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
@@ -45,7 +45,7 @@ class RenderViewController: NSViewController {
   }
 
   private func listenToDocumentChangeSignal() {
-    markdownDocument?.HTML.asDriver(onErrorJustReturn: "Error").drive(onNext: { output in
+    markdownDocument?.markupUpdate.asDriver(onErrorJustReturn: "Error").drive(onNext: { output in
       guard let document = self.markdownDocument else { return }
       self.viewModel = RenderViewModel(filePath: document.path, HTMLString: output)
     }).disposed(by: disposeBag)
@@ -68,16 +68,9 @@ class RenderViewController: NSViewController {
 
   private func registerWindowName() {
     guard let window = view.window,
-      let document = document
+      let document = markdownDocument
       else { return }
     window.setFrameAutosaveName(document.path)
-  }
-
-  private var document: MarkdownDocument? {
-    guard let windowController = view.window?.windowController as? WindowController,
-      let document = windowController.markdownDocument
-      else { return nil }
-    return document
   }
 }
 

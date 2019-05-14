@@ -6,7 +6,7 @@ import RxCocoa
 class MarkdownDocument: NSDocument {
   var disposeBag = DisposeBag()
   let parser = MarkdownParser()
-  var HTML = BehaviorSubject(value: "")
+  var markupUpdate = BehaviorSubject(value: "")
 
   var path: String {
     return fileURL?.path ?? ""
@@ -38,7 +38,7 @@ class MarkdownDocument: NSDocument {
 
   private func convertToHTML() {
     parser.parse(path) { output in
-      self.HTML.onNext(output)
+      self.markupUpdate.onNext(output)
     }
   }
 
@@ -51,7 +51,7 @@ class MarkdownDocument: NSDocument {
         return self?.parser.parse(path)
       }
       .unwrap()
-      .bind(to: HTML)
+      .bind(to: markupUpdate)
       .disposed(by: disposeBag)
   }
 
@@ -62,7 +62,7 @@ class MarkdownDocument: NSDocument {
   private func removeFromWatchedPaths() {
     let watcher = FileWatcher.shared
 
-    if let index = watcher.pathsToWatch.index(of: path) {
+    if let index = watcher.pathsToWatch.firstIndex(of: path) {
       watcher.pathsToWatch.remove(at: index)
     }
   }
