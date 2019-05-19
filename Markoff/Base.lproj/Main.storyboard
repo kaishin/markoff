@@ -340,7 +340,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <visualEffectView wantsLayer="YES" appearanceType="vibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-MT-rQ7">
+                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-MT-rQ7">
                                 <rect key="frame" x="0.0" y="0.0" width="700" height="26"/>
                                 <subviews>
                                     <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oM-eX-dpn">
@@ -358,10 +358,10 @@
                                         </beginningViews>
                                         <endViews>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
-                                                <rect key="frame" x="656.5" y="3" width="40" height="19"/>
+                                                <rect key="frame" x="656" y="3" width="40" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="18" id="G3Q-k0-hOL"/>
-                                                    <constraint firstAttribute="width" constant="39" id="b4A-AV-SOQ"/>
+                                                    <constraint firstAttribute="width" constant="40" id="b4A-AV-SOQ"/>
                                                 </constraints>
                                                 <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="OpenInEditor" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="DbW-tF-EBG">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
