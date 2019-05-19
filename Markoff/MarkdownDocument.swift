@@ -7,6 +7,7 @@ class MarkdownDocument: NSDocument {
   var disposeBag = DisposeBag()
   let parser = MarkdownParser()
   var markupUpdate = BehaviorSubject(value: "")
+  var sourceUpdate = BehaviorSubject(value: "")
 
   var path: String {
     return fileURL?.path ?? ""
@@ -21,13 +22,11 @@ class MarkdownDocument: NSDocument {
   }
 
   override func makeWindowControllers() {
-    let storyboard = NSStoryboard(name: "Main", bundle: nil)
-    let windowController = storyboard.instantiateController(withIdentifier: "Document Window Controller") as! WindowController
-    addWindowController(windowController)
+    addWindowController(WindowController.loadFromStoryboard())
   }
 
   override func read(from url: URL, ofType typeName: String) throws {
-    convertToHTML()
+    self.markupUpdate.onNext(parser.parse(path))
     addToWatchedPaths()
     listenToChanges()
   }
@@ -36,21 +35,22 @@ class MarkdownDocument: NSDocument {
     removeFromWatchedPaths()
   }
 
-  private func convertToHTML() {
-    parser.parse(path) { output in
-      self.markupUpdate.onNext(output)
-    }
-  }
-
   private func listenToChanges() {
     FileWatcher.shared.fileEvent
       .filter { eventPath in
         self.path == eventPath
       }
-      .map { [weak self] path in
-        return self?.parser.parse(path)
+      .map { path in
+        return try? String(contentsOfFile: path, encoding: .utf8)
       }
       .unwrap()
+      .bind(to: sourceUpdate)
+      .disposed(by: disposeBag)
+
+    sourceUpdate
+      .map { [unowned self] markdown in
+        return self.parser.parse(markdown)
+      }
       .bind(to: markupUpdate)
       .disposed(by: disposeBag)
   }

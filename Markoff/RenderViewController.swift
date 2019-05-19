@@ -4,7 +4,7 @@ import RxSwift
 import RxSwiftExt
 import RxCocoa
 
-class RenderViewController: NSViewController {
+class RenderViewController: NSViewController, StoryboardLoadable {
   var disposeBag = DisposeBag()
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
@@ -13,20 +13,19 @@ class RenderViewController: NSViewController {
     return WebView(frame: self.view.bounds)
   }()
 
-  var viewModel: RenderViewModel? {
+  var viewModel: ViewModel! {
     didSet {
-      guard let HTML = viewModel?.fullPageString,
-        let URL = viewModel?.baseURL
-        else { return }
-      onMain {
-        self.webView.update(HTML, baseURL: URL)
-        self.metadataLabel?.stringValue = self.viewModel!.metadata
-      }
+      bindViewModel()
     }
   }
 
-  private var markdownDocument: MarkdownDocument? {
-    return view.window?.windowController?.document as? MarkdownDocument
+  private func bindViewModel() {
+    viewModel.fullPageMarkup.drive(onNext: { markup in
+      self.webView.update(markup, baseURL: ViewModel.templateURL)
+    }).disposed(by: disposeBag)
+
+    viewModel.metadata.drive(metadataLabel.rx.text)
+      .disposed(by: disposeBag)
   }
 
   override func viewDidLoad() {
@@ -37,18 +36,8 @@ class RenderViewController: NSViewController {
 
   override func viewDidAppear() {
     super.viewDidAppear()
-    listenToDocumentChangeSignal()
     registerWindowName()
-
-    guard let document = markdownDocument else { return }
-    self.viewModel = RenderViewModel(document: document)
-  }
-
-  private func listenToDocumentChangeSignal() {
-    markdownDocument?.markupUpdate.asDriver(onErrorJustReturn: "Error").drive(onNext: { output in
-      guard let document = self.markdownDocument else { return }
-      self.viewModel = RenderViewModel(filePath: document.path, HTMLString: output)
-    }).disposed(by: disposeBag)
+    bindViewModel()
   }
 
   private func setupWebView() {
@@ -67,17 +56,39 @@ class RenderViewController: NSViewController {
   }
 
   private func registerWindowName() {
-    guard let window = view.window,
-      let document = markdownDocument
-      else { return }
-    window.setFrameAutosaveName(document.path)
+    guard let window = view.window else { return }
+    window.setFrameAutosaveName(viewModel.filePath)
+  }
+}
+
+extension RenderViewController {
+  final class ViewModel: NSObject {
+    var disposeBag = DisposeBag()
+    let filePath: String
+    let fullPageMarkup: Driver<String>
+    let metadata: Driver<String>
+
+
+    init(document: MarkdownDocument) {
+      self.filePath = document.path
+      self.fullPageMarkup = document.markupUpdate.map( { contentMarkup in
+        return ViewModel.templateMarkup.replacingOccurrences(of: "$PLACEHOLDER", with: contentMarkup)
+      }).asDriver(onErrorJustReturn: "A parsing error occured.")
+
+      self.metadata = document.sourceUpdate.map({ markdown in
+        return "Words: \(markdown.wordCount) – Characters: \(markdown.count)"
+      }).asDriver(onErrorJustReturn: "—")
+    }
+
+    static let templateURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Template")!
+    static let templateMarkup = try! String(contentsOf: ViewModel.templateURL, encoding: .utf8)
   }
 }
 
 extension RenderViewController: WKNavigationDelegate {
   func webView(_ webView: WKWebView,
-    decidePolicyFor navigationAction: WKNavigationAction,
-    decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+               decidePolicyFor navigationAction: WKNavigationAction,
+               decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
     switch navigationAction.navigationType {
     case .linkActivated:
@@ -95,18 +106,3 @@ extension RenderViewController: WKNavigationDelegate {
     }
   }
 }
-
-extension RenderViewController {
-  final class ViewModel: NSObject {
-    internal init(fullPageString: String, baseURL: URL, filePath: String) {
-      self.fullPageString = fullPageString
-      self.baseURL = baseURL
-      self.filePath = filePath
-    }
-
-    let fullPageString: String
-    let baseURL: URL
-    let filePath: String
-  }
-}
-

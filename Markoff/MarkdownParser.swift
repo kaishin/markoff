@@ -11,27 +11,7 @@ class MarkdownParser: NSObject {
   }()
 
   // MARK: - Public Methods
-
-  func parse(_ filePath: String, handler: @escaping (String) -> ()) {
-    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String else {
-      return handler("Parsing failed.")
-    }
-
-    let down = Down(markdownString: transformFrontMatter(markdown))
-
-    do {
-      let html = try down.toHTML()
-      handler(html)
-    } catch let error {
-      handler("Parsing failed: \(error.localizedDescription)")
-    }
-  }
-
-  func parse(_ filePath: String) -> String {
-    guard let markdown = try? NSString(contentsOfFile: filePath, encoding: String.Encoding.utf8.rawValue) as String else {
-      return "Parsing failed."
-    }
-
+  func parse(_ markdown: String) -> String {
     let down = Down(markdownString: transformFrontMatter(markdown))
 
     do {

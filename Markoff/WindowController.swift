@@ -4,8 +4,13 @@ import RxSwiftExt
 import RxCocoa
 import Result
 
-class WindowController: NSWindowController {
+
+class WindowController: NSWindowController, StoryboardLoadable {
   let userDefaults = UserDefaults.standard
+
+  var renderViewController: RenderViewController {
+    return contentViewController as! RenderViewController
+  }
 
   @IBAction func openInEditor(_ sender: AnyObject) {
     guard let appCFURL = URL(string: userDefaults["defaultEditorPath"] as! String) as CFURL?,
@@ -23,6 +28,13 @@ class WindowController: NSWindowController {
       asyncRefCon: nil)
 
     LSOpenFromURLSpec(&launchSpec, nil)
+  }
+
+  override var document: AnyObject? {
+    didSet {
+      guard let document = markdownDocument else { return }
+      renderViewController.viewModel = RenderViewController.ViewModel(document: document)
+    }
   }
 
   var markdownDocument: MarkdownDocument? {

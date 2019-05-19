@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		000516FB1B948CD400BCFD09 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000516FA1B948CD400BCFD09 /* MarkdownParser.swift */; };
+		000AC34B2291E08100FBB6FE /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000AC34A2291E08100FBB6FE /* StoryboardLoadable.swift */; };
 		0024871A1BE00FF40092900B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002487191BE00FF40092900B /* WebView.swift */; };
 		005103A61B95B13F006F04C9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005103A51B95B13F006F04C9 /* WindowController.swift */; };
-		005103A81B95B1E1006F04C9 /* RenderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005103A71B95B1E1006F04C9 /* RenderViewModel.swift */; };
 		005103AB1B95BDD0006F04C9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */; };
 		005103AC1B95BDD0006F04C9 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		005103AD1B95BDD0006F04C9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005103AA1B95BDD0006F04C9 /* Result.framework */; };
@@ -64,9 +64,9 @@
 
 /* Begin PBXFileReference section */
 		000516FA1B948CD400BCFD09 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
+		000AC34A2291E08100FBB6FE /* StoryboardLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		002487191BE00FF40092900B /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		005103A51B95B13F006F04C9 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		005103A71B95B1E1006F04C9 /* RenderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewModel.swift; sourceTree = "<group>"; };
 		005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		005103AA1B95BDD0006F04C9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		005D3AA8227F990A00951638 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/Mac/RxSwiftExt.framework; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 		00EE029F1C64A66C0070F142 /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				005103A71B95B1E1006F04C9 /* RenderViewModel.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -227,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				009627891B975C6700E0A79D /* Regex.swift */,
+				000AC34A2291E08100FBB6FE /* StoryboardLoadable.swift */,
 				00A2ABBD1C69F9950099A7E2 /* GCD.swift */,
 			);
 			name = Helpers;
@@ -343,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000AC34B2291E08100FBB6FE /* StoryboardLoadable.swift in Sources */,
 				009F10261B94657D0004EA76 /* RenderViewController.swift in Sources */,
 				009750141C6B42C700D349A0 /* PreferencesView.swift in Sources */,
 				009750161C6B42E300D349A0 /* Editor.swift in Sources */,
@@ -351,7 +352,6 @@
 				00A2ABBC1C69E4B20099A7E2 /* String.swift in Sources */,
 				0097501A1C6B432A00D349A0 /* NSUserDefaults.swift in Sources */,
 				00F47CA51B99BF4500663B03 /* FileWatcher.swift in Sources */,
-				005103A81B95B1E1006F04C9 /* RenderViewModel.swift in Sources */,
 				0096278A1B975C6700E0A79D /* Regex.swift in Sources */,
 				009F10241B94657D0004EA76 /* AppDelegate.swift in Sources */,
 				00A2ABBE1C69F9950099A7E2 /* GCD.swift in Sources */,
