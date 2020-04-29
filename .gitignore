@@ -10,9 +10,11 @@
 *.pbxuser
 xcuserdata
 *.xccheckout
+*.xcscmblueprint
 
 # Build products
 build/
+.build/
 *.o
 *.LinkFileList
 *.hmap
@@ -24,12 +26,6 @@ build/
 *.dat
 *.dep
 
-# Cocoapods
-Pods
-
-# Carthage
-Carthage/
-
 # AppCode specific files
 .idea/
 *.iml
@@ -39,3 +35,5 @@ node_modules
 _site/
 _vendor/
 
+# SPM
+.swiftpm/

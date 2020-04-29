@@ -11,16 +11,6 @@
 		000AC34B2291E08100FBB6FE /* StoryboardLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000AC34A2291E08100FBB6FE /* StoryboardLoadable.swift */; };
 		0024871A1BE00FF40092900B /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 002487191BE00FF40092900B /* WebView.swift */; };
 		005103A61B95B13F006F04C9 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005103A51B95B13F006F04C9 /* WindowController.swift */; };
-		005103AB1B95BDD0006F04C9 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */; };
-		005103AC1B95BDD0006F04C9 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005103AD1B95BDD0006F04C9 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005103AA1B95BDD0006F04C9 /* Result.framework */; };
-		005103AE1B95BDD0006F04C9 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005103AA1B95BDD0006F04C9 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005D3AAA227F991800951638 /* RxSwiftExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3AA8227F990A00951638 /* RxSwiftExt.framework */; };
-		005D3AAB227F991800951638 /* RxSwiftExt.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3AA8227F990A00951638 /* RxSwiftExt.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005D3AB02280EABE00951638 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3AAF2280EABE00951638 /* RxCocoa.framework */; };
-		005D3AB22280EACF00951638 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3AAF2280EABE00951638 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		005D3AB52280EB2800951638 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3AB32280EB2000951638 /* RxSwift.framework */; };
-		005D3AB62280EB2800951638 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 005D3AB32280EB2000951638 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		008847741C6CD0ED004347A5 /* Support Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008847731C6CD0ED004347A5 /* Support Controller.swift */; };
 		009627881B97384300E0A79D /* Template in Resources */ = {isa = PBXBuildFile; fileRef = 009627871B97384300E0A79D /* Template */; };
 		0096278A1B975C6700E0A79D /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009627891B975C6700E0A79D /* Regex.swift */; };
@@ -35,10 +25,6 @@
 		009F102D1B94657D0004EA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009F102B1B94657D0004EA76 /* Main.storyboard */; };
 		00A2ABBC1C69E4B20099A7E2 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2ABBB1C69E4B20099A7E2 /* String.swift */; };
 		00A2ABBE1C69F9950099A7E2 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A2ABBD1C69F9950099A7E2 /* GCD.swift */; };
-		00A575E4216FF5B300A4B6A1 /* Down.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A575DF216FF58400A4B6A1 /* Down.framework */; };
-		00A575E5216FF5B300A4B6A1 /* Down.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A575DF216FF58400A4B6A1 /* Down.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00A575EC216FF90200A4B6A1 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00A575EA216FF90200A4B6A1 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00A575ED216FF91600A4B6A1 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A575EA216FF90200A4B6A1 /* ReactiveSwift.framework */; };
 		00F47CA51B99BF4500663B03 /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F47CA41B99BF4500663B03 /* FileWatcher.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,13 +35,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				005D3AB22280EACF00951638 /* RxCocoa.framework in Embed Frameworks */,
-				005103AC1B95BDD0006F04C9 /* ReactiveCocoa.framework in Embed Frameworks */,
-				005D3AB62280EB2800951638 /* RxSwift.framework in Embed Frameworks */,
-				00A575E5216FF5B300A4B6A1 /* Down.framework in Embed Frameworks */,
-				005103AE1B95BDD0006F04C9 /* Result.framework in Embed Frameworks */,
-				00A575EC216FF90200A4B6A1 /* ReactiveSwift.framework in Embed Frameworks */,
-				005D3AAB227F991800951638 /* RxSwiftExt.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,11 +46,6 @@
 		000AC34A2291E08100FBB6FE /* StoryboardLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardLoadable.swift; sourceTree = "<group>"; };
 		002487191BE00FF40092900B /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		005103A51B95B13F006F04C9 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		005103AA1B95BDD0006F04C9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
-		005D3AA8227F990A00951638 /* RxSwiftExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwiftExt.framework; path = Carthage/Build/Mac/RxSwiftExt.framework; sourceTree = "<group>"; };
-		005D3AAF2280EABE00951638 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/Mac/RxCocoa.framework; sourceTree = "<group>"; };
-		005D3AB32280EB2000951638 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/Mac/RxSwift.framework; sourceTree = "<group>"; };
 		008847731C6CD0ED004347A5 /* Support Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Support Controller.swift"; sourceTree = "<group>"; };
 		009627871B97384300E0A79D /* Template */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Template; sourceTree = SOURCE_ROOT; };
 		009627891B975C6700E0A79D /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
@@ -89,9 +63,7 @@
 		009F10491B9477300004EA76 /* Markoff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Markoff.entitlements; sourceTree = "<group>"; };
 		00A2ABBB1C69E4B20099A7E2 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		00A2ABBD1C69F9950099A7E2 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
-		00A575DF216FF58400A4B6A1 /* Down.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Down.framework; path = Carthage/Build/Mac/Down.framework; sourceTree = "<group>"; };
 		00A575E6216FF5BC00A4B6A1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		00A575EA216FF90200A4B6A1 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/Mac/ReactiveSwift.framework; sourceTree = "<group>"; };
 		00F47CA41B99BF4500663B03 /* FileWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileWatcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,13 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A575E4216FF5B300A4B6A1 /* Down.framework in Frameworks */,
-				005103AD1B95BDD0006F04C9 /* Result.framework in Frameworks */,
-				005103AB1B95BDD0006F04C9 /* ReactiveCocoa.framework in Frameworks */,
-				005D3AB52280EB2800951638 /* RxSwift.framework in Frameworks */,
-				00A575ED216FF91600A4B6A1 /* ReactiveSwift.framework in Frameworks */,
-				005D3AB02280EABE00951638 /* RxCocoa.framework in Frameworks */,
-				005D3AAA227F991800951638 /* RxSwiftExt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,7 +85,7 @@
 				009F10251B94657D0004EA76 /* RenderViewController.swift */,
 				009750131C6B42C700D349A0 /* PreferencesView.swift */,
 			);
-			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		009F10171B94657D0004EA76 = {
@@ -176,7 +141,6 @@
 				00A2ABBA1C69E4A30099A7E2 /* Extensions */,
 				00EE02A01C64A6770070F142 /* Helpers */,
 				00EE02A11C64A67E0070F142 /* Models */,
-				00EE029F1C64A66C0070F142 /* Presenters */,
 				002487181BE00FD90092900B /* Views */,
 			);
 			name = Classes;
@@ -188,20 +152,13 @@
 				009750191C6B432A00D349A0 /* NSUserDefaults.swift */,
 				00A2ABBB1C69E4B20099A7E2 /* String.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		00A575DE216FF58400A4B6A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				005D3AB32280EB2000951638 /* RxSwift.framework */,
-				005D3AAF2280EABE00951638 /* RxCocoa.framework */,
-				005D3AA8227F990A00951638 /* RxSwiftExt.framework */,
-				00A575EA216FF90200A4B6A1 /* ReactiveSwift.framework */,
-				005103A91B95BDD0006F04C9 /* ReactiveCocoa.framework */,
-				005103AA1B95BDD0006F04C9 /* Result.framework */,
 				00A575E6216FF5BC00A4B6A1 /* WebKit.framework */,
-				00A575DF216FF58400A4B6A1 /* Down.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -212,14 +169,7 @@
 				009F10231B94657D0004EA76 /* AppDelegate.swift */,
 				005103A51B95B13F006F04C9 /* WindowController.swift */,
 			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		00EE029F1C64A66C0070F142 /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Presenters;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		00EE02A01C64A6770070F142 /* Helpers */ = {
@@ -229,7 +179,7 @@
 				000AC34A2291E08100FBB6FE /* StoryboardLoadable.swift */,
 				00A2ABBD1C69F9950099A7E2 /* GCD.swift */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		00EE02A11C64A67E0070F142 /* Models */ = {
@@ -242,7 +192,7 @@
 				009750171C6B42EB00D349A0 /* PreferencesController.swift */,
 				008847731C6CD0ED004347A5 /* Support Controller.swift */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -493,7 +443,8 @@
 				);
 				INFOPLIST_FILE = Markoff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				"OTHER_SWIFT_FLAGS[arch=*]" = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.redalemeden.Markoff;
@@ -516,7 +467,8 @@
 				);
 				INFOPLIST_FILE = Markoff/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 2.0.0;
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.redalemeden.Markoff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
