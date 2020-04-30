@@ -1,11 +1,7 @@
 import AppKit
-import RxSwift
-import RxSwiftExt
-import RxCocoa
-import Result
 
 
-class WindowController: NSWindowController, StoryboardLoadable {
+class WindowController: NSWindowController {
   let userDefaults = UserDefaults.standard
 
   var renderViewController: RenderViewController {

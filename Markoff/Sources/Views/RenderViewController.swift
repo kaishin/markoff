@@ -1,11 +1,8 @@
 import Cocoa
 import WebKit
-import RxSwift
-import RxSwiftExt
-import RxCocoa
 
-class RenderViewController: NSViewController, StoryboardLoadable {
-  var disposeBag = DisposeBag()
+class RenderViewController: NSViewController {
+//  var disposeBag = DisposeBag()
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
@@ -20,12 +17,12 @@ class RenderViewController: NSViewController, StoryboardLoadable {
   }
 
   private func bindViewModel() {
-    viewModel.fullPageMarkup.drive(onNext: { markup in
-      self.webView.update(markup, baseURL: ViewModel.templateURL)
-    }).disposed(by: disposeBag)
-
-    viewModel.metadata.drive(metadataLabel.rx.text)
-      .disposed(by: disposeBag)
+//    viewModel.fullPageMarkup.drive(onNext: { markup in
+//      self.webView.update(markup, baseURL: ViewModel.templateURL)
+//    }).disposed(by: disposeBag)
+//
+//    viewModel.metadata.drive(metadataLabel.rx.text)
+//      .disposed(by: disposeBag)
   }
 
   override func viewDidLoad() {
@@ -63,21 +60,21 @@ class RenderViewController: NSViewController, StoryboardLoadable {
 
 extension RenderViewController {
   final class ViewModel: NSObject {
-    var disposeBag = DisposeBag()
+//    var disposeBag = DisposeBag()
     let filePath: String
-    let fullPageMarkup: Driver<String>
-    let metadata: Driver<String>
+//    let fullPageMarkup: Driver<String>
+//    let metadata: Driver<String>
 
 
     init(document: MarkdownDocument) {
       self.filePath = document.path
-      self.fullPageMarkup = document.markupUpdate.map( { contentMarkup in
-        return ViewModel.templateMarkup.replacingOccurrences(of: "$PLACEHOLDER", with: contentMarkup)
-      }).asDriver(onErrorJustReturn: "A parsing error occured.")
+//      self.fullPageMarkup = document.markupUpdate.map( { contentMarkup in
+//        return ViewModel.templateMarkup.replacingOccurrences(of: "$PLACEHOLDER", with: contentMarkup)
+//      }).asDriver(onErrorJustReturn: "A parsing error occured.")
 
-      self.metadata = document.sourceUpdate.map({ markdown in
-        return "Words: \(markdown.wordCount) – Characters: \(markdown.count)"
-      }).asDriver(onErrorJustReturn: "—")
+//      self.metadata = document.sourceUpdate.map({ markdown in
+//        return "Words: \(markdown.wordCount) – Characters: \(markdown.count)"
+//      }).asDriver(onErrorJustReturn: "—")
     }
 
     static let templateURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Template")!

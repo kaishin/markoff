@@ -1,5 +1,5 @@
 import Foundation
-import Down
+import CommonMark
 
 class MarkdownParser: NSObject {
   // MARK: - Private Properties
@@ -12,10 +12,9 @@ class MarkdownParser: NSObject {
 
   // MARK: - Public Methods
   func parse(_ markdown: String) -> String {
-    let down = Down(markdownString: transformFrontMatter(markdown))
-
     do {
-      return try down.toHTML()
+      let document = try Document(transformFrontMatter(markdown))
+      return document.render(format: .html)
     } catch let error {
       return "Parsing failed: \(error.localizedDescription)"
     }

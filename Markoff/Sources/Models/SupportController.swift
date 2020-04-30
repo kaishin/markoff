@@ -1,7 +1,7 @@
 import Cocoa
 
 struct SupportController {
-  let email = "markoff@thoughtbot.com"
+  let email = "markoff@hello.redalemeden.com"
   let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
   let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
   let systemVersion = ProcessInfo.processInfo.operatingSystemVersionString
