@@ -313,6 +313,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
+                <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <windowController storyboardIdentifier="WindowController" id="jGA-0Y-lOj" customClass="WindowController" customModule="Markoff" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
@@ -323,11 +324,7 @@
                             <outlet property="delegate" destination="jGA-0Y-lOj" id="Rsa-P1-T3j"/>
                         </connections>
                     </window>
-                    <connections>
-                        <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="1mc-Tw-3L9"/>
-                    </connections>
                 </windowController>
-                <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="91" y="365"/>
         </scene>
@@ -338,83 +335,6 @@
                 <customObject id="oCv-2P-WaT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="624" y="243"/>
-        </scene>
-        <!--Render View Controller-->
-        <scene sceneID="hIz-AP-VOD">
-            <objects>
-                <viewController storyboardIdentifier="RenderViewController" id="5gI-5U-AMq" customClass="RenderViewController" customModule="Markoff" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="700" height="600"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <visualEffectView wantsLayer="YES" appearanceType="inheritedVibrantLight" blendingMode="withinWindow" material="underWindowBackground" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-MT-rQ7">
-                                <rect key="frame" x="0.0" y="0.0" width="700" height="26"/>
-                                <subviews>
-                                    <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7oM-eX-dpn">
-                                        <rect key="frame" x="0.0" y="0.0" width="700" height="26"/>
-                                        <edgeInsets key="edgeInsets" left="8" right="4" top="0.0" bottom="0.0"/>
-                                        <beginningViews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rHX-bb-LQP">
-                                                <rect key="frame" x="6" y="6" width="85" height="14"/>
-                                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Metadata Label" id="kxO-KS-Eds">
-                                                    <font key="font" metaFont="label" size="11"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                        </beginningViews>
-                                        <endViews>
-                                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uh-fi-xtf">
-                                                <rect key="frame" x="675" y="3" width="21" height="19"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="18" id="G3Q-k0-hOL"/>
-                                                    <constraint firstAttribute="width" constant="40" id="b4A-AV-SOQ"/>
-                                                </constraints>
-                                                <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="OpenInEditor" imagePosition="only" alignment="center" controlSize="small" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="DbW-tF-EBG">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="label" size="11"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="openInEditor:" target="2Tp-Fl-jBw" id="fBI-3d-HhY"/>
-                                                </connections>
-                                            </button>
-                                        </endViews>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="480" id="ney-bg-PVx"/>
-                                        </constraints>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="7oM-eX-dpn" secondAttribute="trailing" id="Log-oU-1fA"/>
-                                    <constraint firstItem="7oM-eX-dpn" firstAttribute="leading" secondItem="oVS-MT-rQ7" secondAttribute="leading" id="fzc-fC-DOV"/>
-                                    <constraint firstItem="7oM-eX-dpn" firstAttribute="top" secondItem="oVS-MT-rQ7" secondAttribute="top" id="gxj-6n-ZLk"/>
-                                    <constraint firstAttribute="bottom" secondItem="7oM-eX-dpn" secondAttribute="bottom" id="qIj-1n-cWA"/>
-                                    <constraint firstAttribute="height" constant="26" id="yIm-Xp-DPr"/>
-                                </constraints>
-                            </visualEffectView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="oVS-MT-rQ7" secondAttribute="bottom" id="0xz-Tk-R0L"/>
-                            <constraint firstAttribute="trailing" secondItem="oVS-MT-rQ7" secondAttribute="trailing" id="i47-pb-cFK"/>
-                            <constraint firstItem="oVS-MT-rQ7" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="icC-B8-Pjh"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="metadataLabel" destination="rHX-bb-LQP" id="856-Vw-Z3f"/>
-                        <outlet property="openButton" destination="6uh-fi-xtf" id="zSS-1f-3TK"/>
-                    </connections>
-                </viewController>
-                <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="91" y="1111"/>
         </scene>
         <!--Preferences View-->
         <scene sceneID="hSM-Xh-3rb">
@@ -427,7 +347,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RjX-ng-8Gt">
                                 <rect key="frame" x="18" y="24" width="119" height="16"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="External text editor" id="WEd-HE-8BT">
-                                    <font key="font" metaFont="label" size="13"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -436,7 +356,7 @@
                                 <rect key="frame" x="145" y="18" width="147" height="25"/>
                                 <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="v8Z-sd-3tO" userLabel="Editors">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="13"/>
+                                    <font key="font" metaFont="system"/>
                                     <menu key="menu" id="tSy-Ea-6BS"/>
                                     <connections>
                                         <binding destination="Vf5-0I-ABI" name="contentValues" keyPath="arrangedObjects" id="1eR-hK-UQU"/>
@@ -490,7 +410,4 @@
             <point key="canvasLocation" x="-461" y="145"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="OpenInEditor" width="32" height="32"/>
-    </resources>
 </document>

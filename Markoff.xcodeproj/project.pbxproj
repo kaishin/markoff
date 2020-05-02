@@ -24,9 +24,9 @@
 		00DCC293245A2B0E00F44AA8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC282245A2B0E00F44AA8 /* String.swift */; };
 		00DCC294245A2B0E00F44AA8 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC284245A2B0E00F44AA8 /* PreferencesView.swift */; };
 		00DCC295245A2B0E00F44AA8 /* RenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC285245A2B0E00F44AA8 /* RenderViewController.swift */; };
-		00DCC296245A2B0E00F44AA8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC286245A2B0E00F44AA8 /* WebView.swift */; };
 		00DCC299245A2C4D00F44AA8 /* CommonMark in Frameworks */ = {isa = PBXBuildFile; productRef = 00DCC298245A2C4D00F44AA8 /* CommonMark */; };
 		00DCC29B245A2CF900F44AA8 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC29A245A2CF900F44AA8 /* RenderView.swift */; };
+		00DCC29D245D738900F44AA8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC29C245D738900F44AA8 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -64,8 +64,8 @@
 		00DCC282245A2B0E00F44AA8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		00DCC284245A2B0E00F44AA8 /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		00DCC285245A2B0E00F44AA8 /* RenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
-		00DCC286245A2B0E00F44AA8 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		00DCC29A245A2CF900F44AA8 /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
+		00DCC29C245D738900F44AA8 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +191,8 @@
 			children = (
 				00DCC284245A2B0E00F44AA8 /* PreferencesView.swift */,
 				00DCC285245A2B0E00F44AA8 /* RenderViewController.swift */,
-				00DCC286245A2B0E00F44AA8 /* WebView.swift */,
 				00DCC29A245A2CF900F44AA8 /* RenderView.swift */,
+				00DCC29C245D738900F44AA8 /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,7 +301,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DCC28E245A2B0E00F44AA8 /* AppDelegate.swift in Sources */,
-				00DCC296245A2B0E00F44AA8 /* WebView.swift in Sources */,
 				00DCC293245A2B0E00F44AA8 /* String.swift in Sources */,
 				00DCC295245A2B0E00F44AA8 /* RenderViewController.swift in Sources */,
 				00DCC29B245A2CF900F44AA8 /* RenderView.swift in Sources */,
@@ -311,6 +310,7 @@
 				00DCC28D245A2B0E00F44AA8 /* WindowController.swift in Sources */,
 				00DCC289245A2B0E00F44AA8 /* Editor.swift in Sources */,
 				00DCC28F245A2B0E00F44AA8 /* GCD.swift in Sources */,
+				00DCC29D245D738900F44AA8 /* WebView.swift in Sources */,
 				00DCC288245A2B0E00F44AA8 /* MarkdownDocument.swift in Sources */,
 				00DCC28A245A2B0E00F44AA8 /* SupportController.swift in Sources */,
 				00DCC291245A2B0E00F44AA8 /* Regex.swift in Sources */,

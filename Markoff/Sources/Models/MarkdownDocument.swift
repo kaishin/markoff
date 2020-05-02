@@ -22,7 +22,7 @@ class MarkdownDocument: NSDocument, ObservableObject {
   }
 
   override func makeWindowControllers() {
-    let contentView = RenderView()
+    let contentView = RenderView(.init(document: self))
 
     let window = NSWindow(
       contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
@@ -32,7 +32,7 @@ class MarkdownDocument: NSDocument, ObservableObject {
 
     window.center()
     window.contentView = NSHostingView(rootView: contentView)
-    let windowController = WindowController(window: window)
+    let windowController = NSWindowController(window: window)
     self.addWindowController(windowController)
   }
 
