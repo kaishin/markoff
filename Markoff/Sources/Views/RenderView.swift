@@ -1,33 +1,44 @@
 import SwiftUI
 import Combine
+import WebKit
 
 struct RenderView: View {
-  @ObservedObject var store: RenderViewStore
+  @ObservedObject var viewModel: RenderViewModel
 
-  init(_ store: RenderViewStore) {
-    self.store = store
+  init(_ viewModel: RenderViewModel) {
+    self.viewModel = viewModel
   }
 
   var body: some View {
-    ZStack {
-      WebView(webView: store.webViewStore.webView)
+    VStack(spacing: 0) {
+      WebView(webView: viewModel.webViewStore.webView)
+        .frame(minWidth: 600, minHeight: 400)
 
-//      Text(store.document.path)
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+      HStack {
+        Text(viewModel.metadata)
+        Spacer()
+        Text("Button")
+      }
+      .padding(.horizontal, 8)
+      .padding(.vertical, 4)
+      .background(BlurEffectView())
     }
   }
 }
 
 
-class RenderViewStore: ObservableObject {
+class RenderViewModel: NSObject, ObservableObject {
   var document: MarkdownDocument
   var webViewStore = WebViewStore()
   var cancellables = Set<AnyCancellable>()
 
-  @Published var markup: String = ""
   @Published var metadata: String = ""
 
-  let templateURL = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "Template")!
+  let templateURL = Bundle.main.url(
+    forResource: "index",
+    withExtension: "html",
+    subdirectory: "Template"
+  )!
 
   lazy var templateMarkup = {
     try! String(contentsOf: templateURL, encoding: .utf8)
@@ -36,32 +47,63 @@ class RenderViewStore: ObservableObject {
 
   init(document: MarkdownDocument) {
     self.document = document
+    super.init()
+    self.setup()
+  }
+
+  private func setup() {
+    webViewStore.webView.navigationDelegate = self
 
     document.markupUpdate
-      .map { html in
-        "Words"
+      .map { content in
+        self.templateMarkup.replacingOccurrences(of: "$PLACEHOLDER", with: content)
       }
-      .assign(to: \.markup, on: self)
+      .receive(on: DispatchQueue.main)
+      .sink {
+        self.webViewStore.update($0, baseURL: self.templateURL)
+      }
       .store(in: &cancellables)
 
     document.sourceUpdate
       .map { markdown in
         "Words: \(markdown.wordCount) – Characters: \(markdown.count)"
       }
+      .receive(on: DispatchQueue.main)
       .assign(to: \.metadata, on: self)
       .store(in: &cancellables)
-
-    document.markupUpdate
-      .sink {
-        self.webViewStore.update($0, baseURL: self.templateURL)
-      }
-      .store(in: &cancellables)
   }
-
 }
 
-//struct RenderView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    RenderView()
-//  }
-//}
+extension RenderViewModel: WKNavigationDelegate {
+  func webView(
+    _ webView: WKWebView,
+    decidePolicyFor navigationAction: WKNavigationAction,
+    decisionHandler: @escaping (WKNavigationActionPolicy
+  ) -> Void) {
+
+    switch navigationAction.navigationType {
+    case .linkActivated:
+      guard let url = navigationAction.request.url else { return }
+
+      let localPageURL = Bundle.main.url(
+        forResource: "index",
+        withExtension: "html",
+        subdirectory: "Template"
+      )!
+
+      let urlStringWithoutFragment = url.absoluteString.replacingOccurrences(
+        of: "#" + (url.fragment ?? ""),
+        with: ""
+      )
+
+      if urlStringWithoutFragment == localPageURL.absoluteString {
+        decisionHandler(.allow)
+      } else {
+        decisionHandler(.cancel)
+        NSWorkspace.shared.open(url)
+      }
+    default:
+      decisionHandler(.allow)
+    }
+  }
+}

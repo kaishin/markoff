@@ -318,7 +318,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <rect key="contentRect" x="561" y="322" width="500" height="500"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
                         <value key="minSize" type="size" width="400" height="400"/>
                         <connections>
                             <outlet property="delegate" destination="jGA-0Y-lOj" id="Rsa-P1-T3j"/>
@@ -327,14 +327,6 @@
                 </windowController>
             </objects>
             <point key="canvasLocation" x="91" y="365"/>
-        </scene>
-        <!--Hosting Controller-->
-        <scene sceneID="W9L-za-LbD">
-            <objects>
-                <hostingController id="QxL-1x-2MC" sceneMemberID="viewController"/>
-                <customObject id="oCv-2P-WaT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="624" y="243"/>
         </scene>
         <!--Preferences View-->
         <scene sceneID="hSM-Xh-3rb">

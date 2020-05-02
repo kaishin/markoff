@@ -27,6 +27,7 @@
 		00DCC299245A2C4D00F44AA8 /* CommonMark in Frameworks */ = {isa = PBXBuildFile; productRef = 00DCC298245A2C4D00F44AA8 /* CommonMark */; };
 		00DCC29B245A2CF900F44AA8 /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC29A245A2CF900F44AA8 /* RenderView.swift */; };
 		00DCC29D245D738900F44AA8 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC29C245D738900F44AA8 /* WebView.swift */; };
+		00DCC29F245E2F1F00F44AA8 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC29E245E2F1F00F44AA8 /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +67,7 @@
 		00DCC285245A2B0E00F44AA8 /* RenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenderViewController.swift; sourceTree = "<group>"; };
 		00DCC29A245A2CF900F44AA8 /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		00DCC29C245D738900F44AA8 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		00DCC29E245E2F1F00F44AA8 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				00DCC285245A2B0E00F44AA8 /* RenderViewController.swift */,
 				00DCC29A245A2CF900F44AA8 /* RenderView.swift */,
 				00DCC29C245D738900F44AA8 /* WebView.swift */,
+				00DCC29E245E2F1F00F44AA8 /* BlurView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				00DCC29D245D738900F44AA8 /* WebView.swift in Sources */,
 				00DCC288245A2B0E00F44AA8 /* MarkdownDocument.swift in Sources */,
 				00DCC28A245A2B0E00F44AA8 /* SupportController.swift in Sources */,
+				00DCC29F245E2F1F00F44AA8 /* BlurView.swift in Sources */,
 				00DCC291245A2B0E00F44AA8 /* Regex.swift in Sources */,
 				00DCC292245A2B0E00F44AA8 /* NSUserDefaults.swift in Sources */,
 				00DCC294245A2B0E00F44AA8 /* PreferencesView.swift in Sources */,
