@@ -3,11 +3,11 @@ import SwiftUI
 import Combine
 
 class MarkdownDocument: NSDocument, ObservableObject {
-  var cancellables = [Cancellable]()
+  var cancellables = Set<AnyCancellable>()
   let parser = MarkdownParser()
 
-//  var markupUpdate = BehaviorSubject(value: "")
-//  var sourceUpdate = BehaviorSubject(value: "")
+  var markupUpdate = CurrentValueSubject<String, Never>("")
+  var sourceUpdate = CurrentValueSubject<String, Never>("")
 
   var path: String {
     return fileURL?.path ?? ""
@@ -37,7 +37,7 @@ class MarkdownDocument: NSDocument, ObservableObject {
   }
 
   override func read(from url: URL, ofType typeName: String) throws {
-    // self.markupUpdate.onNext(parser.parse(path))
+    markupUpdate.send(parser.parse(path))
     addToWatchedPaths()
     listenToChanges()
   }
@@ -47,23 +47,28 @@ class MarkdownDocument: NSDocument, ObservableObject {
   }
 
   private func listenToChanges() {
-//    FileWatcher.shared.fileEvent
-//      .filter { eventPath in
-//        self.path == eventPath
-//      }
-//      .map { path in
-//        return try? String(contentsOfFile: path, encoding: .utf8)
-//      }
-//      .unwrap()
-//      .bind(to: sourceUpdate)
-//      .disposed(by: disposeBag)
-//
-//    sourceUpdate
-//      .map { [unowned self] markdown in
-//        return self.parser.parse(markdown)
-//      }
-//      .bind(to: markupUpdate)
-//      .disposed(by: disposeBag)
+    FileWatcher.shared.fileEvent
+      .filter { eventPath in
+        self.path == eventPath
+      }
+      .map { path in
+        return try? String(contentsOfFile: path, encoding: .utf8)
+      }
+      .compactMap { $0 }
+      .sink {
+        self.sourceUpdate.send($0)
+      }
+      .store(in: &cancellables)
+
+
+    sourceUpdate
+      .map { [unowned self] markdown in
+        return self.parser.parse(markdown)
+      }
+      .sink {
+        self.markupUpdate.send($0)
+      }
+      .store(in: &cancellables)
   }
 
   private func addToWatchedPaths() {

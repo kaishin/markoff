@@ -1,8 +1,9 @@
 import Cocoa
 import WebKit
+import Combine
 
 class RenderViewController: NSViewController {
-//  var disposeBag = DisposeBag()
+  var cancellables = Set<AnyCancellable>()
   @IBOutlet weak var openButton: NSButton!
   @IBOutlet weak var metadataLabel: NSTextField!
 
@@ -60,14 +61,15 @@ class RenderViewController: NSViewController {
 
 extension RenderViewController {
   final class ViewModel: NSObject {
-//    var disposeBag = DisposeBag()
+    var cancellables = Set<AnyCancellable>()
     let filePath: String
-//    let fullPageMarkup: Driver<String>
+//    let fullPageMarkup: PassthroughSubject<String, Never>
 //    let metadata: Driver<String>
 
 
     init(document: MarkdownDocument) {
       self.filePath = document.path
+      
 //      self.fullPageMarkup = document.markupUpdate.map( { contentMarkup in
 //        return ViewModel.templateMarkup.replacingOccurrences(of: "$PLACEHOLDER", with: contentMarkup)
 //      }).asDriver(onErrorJustReturn: "A parsing error occured.")
