@@ -11,6 +11,8 @@ struct RenderView: View {
 
   var body: some View {
     VStack(spacing: 0) {
+      // Temporary hack to get the WebView to display the content properly.
+      Rectangle().fill(Color(.windowBackgroundColor)).frame(height: 1)
       WebView(webView: viewModel.webViewStore.webView)
         .frame(minWidth: 600, minHeight: 400)
 
@@ -25,7 +27,6 @@ struct RenderView: View {
     }
   }
 }
-
 
 class RenderViewModel: NSObject, ObservableObject {
   var document: MarkdownDocument
