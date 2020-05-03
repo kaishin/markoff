@@ -28,23 +28,27 @@ struct RenderView: View {
   }
 }
 
+let template = """
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/main.css" charset="utf-8">
+    <script src="scripts/vendor.js" type="text/javascript" charset="utf-8"></script>
+    <script src="scripts/main.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+  <body>
+   <main>$PLACEHOLDER</main>
+  </body>
+</html>
+"""
+
 class RenderViewModel: NSObject, ObservableObject {
   var document: MarkdownDocument
   var webViewStore = WebViewStore()
   var cancellables = Set<AnyCancellable>()
 
   @Published var metadata: String = ""
-
-  let templateURL = Bundle.main.url(
-    forResource: "index",
-    withExtension: "html",
-    subdirectory: "Template"
-  )!
-
-  lazy var templateMarkup = {
-    try! String(contentsOf: templateURL, encoding: .utf8)
-  }()
-
 
   init(document: MarkdownDocument) {
     self.document = document
@@ -57,11 +61,11 @@ class RenderViewModel: NSObject, ObservableObject {
 
     document.markupUpdate
       .map { content in
-        self.templateMarkup.replacingOccurrences(of: "$PLACEHOLDER", with: content)
+        template.replacingOccurrences(of: "$PLACEHOLDER", with: content)
       }
       .receive(on: DispatchQueue.main)
       .sink {
-        self.webViewStore.update($0, baseURL: self.templateURL)
+        self.webViewStore.update($0)
       }
       .store(in: &cancellables)
 
@@ -86,18 +90,13 @@ extension RenderViewModel: WKNavigationDelegate {
     case .linkActivated:
       guard let url = navigationAction.request.url else { return }
 
-      let localPageURL = Bundle.main.url(
-        forResource: "index",
-        withExtension: "html",
-        subdirectory: "Template"
-      )!
-
       let urlStringWithoutFragment = url.absoluteString.replacingOccurrences(
         of: "#" + (url.fragment ?? ""),
         with: ""
       )
 
-      if urlStringWithoutFragment == localPageURL.absoluteString {
+      // TODO: Improve detection of local URLs
+      if !urlStringWithoutFragment.contains("http") {
         decisionHandler(.allow)
       } else {
         decisionHandler(.cancel)

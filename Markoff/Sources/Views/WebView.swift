@@ -49,7 +49,7 @@ class WebViewStore: ObservableObject {
 }
 
 extension WebViewStore {
-  func update(_ HTML: String, baseURL: URL) {
+  func update(_ HTML: String, baseURL: URL? = nil) {
     webView.evaluateJavaScript("window.pageYOffset") { [weak self] object, error in
       self?.webView.loadHTMLString(HTML, baseURL: baseURL)
 
