@@ -69,17 +69,15 @@ extension WebViewStore {
 struct WebView: View, NSViewRepresentable {
   let webView: WKWebView
 
-  typealias NSViewType = NSViewContainerView<WKWebView>
-
   init(webView: WKWebView) {
     self.webView = webView
   }
 
-  func makeNSView(context: Context) -> WebView.NSViewType {
+  func makeNSView(context: Context) -> NSViewContainerView<WKWebView> {
     return NSViewContainerView()
   }
 
-  func updateNSView(_ view: WebView.NSViewType, context: Context) {
+  func updateNSView(_ view: NSViewContainerView<WKWebView>, context: Context) {
     if view.contentView !== webView {
       view.contentView = webView
     }
