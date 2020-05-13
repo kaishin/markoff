@@ -1,5 +1,5 @@
-import SwiftUI
 import Combine
+import SwiftUI
 import WebKit
 
 struct RenderView: View {
@@ -28,14 +28,22 @@ struct RenderView: View {
   }
 }
 
+func css() -> String {
+  let url = Bundle.main.url(forResource: "styles", withExtension: "css")
+  return try! String(contentsOf: url!)
+}
+
 let template = """
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Preview</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/main.css" charset="utf-8">
     <script src="scripts/vendor.js" type="text/javascript" charset="utf-8"></script>
     <script src="scripts/main.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+    \(css())
+    </style>
   </head>
   <body>
    <main>$PLACEHOLDER</main>
@@ -53,7 +61,7 @@ class RenderViewModel: NSObject, ObservableObject {
   init(document: MarkdownDocument) {
     self.document = document
     super.init()
-    self.setup()
+    setup()
   }
 
   private func setup() {
@@ -61,7 +69,8 @@ class RenderViewModel: NSObject, ObservableObject {
 
     document.markupUpdate
       .map { content in
-        template.replacingOccurrences(of: "$PLACEHOLDER", with: content)
+        template
+          .replacingOccurrences(of: "$PLACEHOLDER", with: content)
       }
       .receive(on: DispatchQueue.main)
       .sink {
@@ -81,11 +90,11 @@ class RenderViewModel: NSObject, ObservableObject {
 
 extension RenderViewModel: WKNavigationDelegate {
   func webView(
-    _ webView: WKWebView,
+    _: WKWebView,
     decidePolicyFor navigationAction: WKNavigationAction,
     decisionHandler: @escaping (WKNavigationActionPolicy
-  ) -> Void) {
-
+    ) -> Void
+  ) {
     switch navigationAction.navigationType {
     case .linkActivated:
       guard let url = navigationAction.request.url else { return }

@@ -73,35 +73,10 @@ struct WebView: View, NSViewRepresentable {
     self.webView = webView
   }
 
-  func makeNSView(context: Context) -> NSViewContainerView<WKWebView> {
-    return NSViewContainerView()
+  func makeNSView(context: Context) -> WKWebView {
+    return webView
   }
 
-  func updateNSView(_ view: NSViewContainerView<WKWebView>, context: Context) {
-    if view.contentView !== webView {
-      view.contentView = webView
-    }
-  }
+  func updateNSView(_ view: WKWebView, context: Context) {}
 }
 
-class NSViewContainerView<ContentView: NSView>: NSView {
-  var contentView: ContentView? {
-    willSet {
-      contentView?.removeFromSuperview()
-    }
-
-    didSet {
-      if let contentView = contentView {
-        addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-          contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-          contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-          contentView.topAnchor.constraint(equalTo: topAnchor),
-          contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ])
-      }
-    }
-  }
-}

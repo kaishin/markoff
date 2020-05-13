@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		009627881B97384300E0A79D /* Template in Resources */ = {isa = PBXBuildFile; fileRef = 009627871B97384300E0A79D /* Template */; };
 		009F102A1B94657D0004EA76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009F10291B94657D0004EA76 /* Assets.xcassets */; };
 		009F102D1B94657D0004EA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009F102B1B94657D0004EA76 /* Main.storyboard */; };
+		00B74481246B641600B65BBC /* sample.md in Resources */ = {isa = PBXBuildFile; fileRef = 00B74480246B641600B65BBC /* sample.md */; };
+		00B74483246B679700B65BBC /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 00B74482246B679700B65BBC /* styles.css */; };
 		00DCC287245A2B0E00F44AA8 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC273245A2B0E00F44AA8 /* MarkdownParser.swift */; };
 		00DCC288245A2B0E00F44AA8 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC274245A2B0E00F44AA8 /* MarkdownDocument.swift */; };
 		00DCC289245A2B0E00F44AA8 /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC275245A2B0E00F44AA8 /* Editor.swift */; };
@@ -44,13 +45,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		009627871B97384300E0A79D /* Template */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Template; sourceTree = SOURCE_ROOT; };
 		009F10201B94657D0004EA76 /* Markoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009F10291B94657D0004EA76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		009F102C1B94657D0004EA76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		009F102E1B94657D0004EA76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		009F10491B9477300004EA76 /* Markoff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Markoff.entitlements; sourceTree = "<group>"; };
 		00A575E6216FF5BC00A4B6A1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		00B74480246B641600B65BBC /* sample.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = sample.md; path = Resources/sample.md; sourceTree = "<group>"; };
+		00B74482246B679700B65BBC /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = styles.css; path = Resources/Web/styles.css; sourceTree = "<group>"; };
 		00DCC273245A2B0E00F44AA8 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
 		00DCC274245A2B0E00F44AA8 /* MarkdownDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		00DCC275245A2B0E00F44AA8 /* Editor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
@@ -112,7 +114,8 @@
 		009F10341B946A510004EA76 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				009627871B97384300E0A79D /* Template */,
+				00B74482246B679700B65BBC /* styles.css */,
+				00B74480246B641600B65BBC /* sample.md */,
 				009F10291B94657D0004EA76 /* Assets.xcassets */,
 				009F10491B9477300004EA76 /* Markoff.entitlements */,
 				009F102E1B94657D0004EA76 /* Info.plist */,
@@ -272,9 +275,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				009627881B97384300E0A79D /* Template in Resources */,
 				009F102A1B94657D0004EA76 /* Assets.xcassets in Resources */,
+				00B74483246B679700B65BBC /* styles.css in Resources */,
 				009F102D1B94657D0004EA76 /* Main.storyboard in Resources */,
+				00B74481246B641600B65BBC /* sample.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,7 +29,7 @@ class PreferencesController {
   }
 
   private lazy var sampleFileURL: URL = {
-    return Bundle.main.url(forResource: "sample", withExtension: "md", subdirectory: "Template")!
+    return Bundle.main.url(forResource: "sample", withExtension: "md")!
   }()
 
   private var systemDefaultEditor: Editor? {
