@@ -19,7 +19,14 @@ struct RenderView: View {
       HStack {
         Text(viewModel.metadata)
         Spacer()
-        Text("Button")
+        Button(action: {
+          open(self.viewModel.document)
+        }) {
+          Image("OpenInEditor")
+            .resizable()
+            .frame(width: 16, height: 16)
+        }
+        .buttonStyle(BorderlessButtonStyle())
       }
       .padding(.horizontal, 8)
       .padding(.vertical, 4)

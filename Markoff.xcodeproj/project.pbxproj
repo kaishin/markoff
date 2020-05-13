@@ -11,6 +11,7 @@
 		009F102D1B94657D0004EA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 009F102B1B94657D0004EA76 /* Main.storyboard */; };
 		00B74481246B641600B65BBC /* sample.md in Resources */ = {isa = PBXBuildFile; fileRef = 00B74480246B641600B65BBC /* sample.md */; };
 		00B74483246B679700B65BBC /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 00B74482246B679700B65BBC /* styles.css */; };
+		00BA79E9246C937D001A07A6 /* OpenInEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BA79E8246C937D001A07A6 /* OpenInEditor.swift */; };
 		00DCC287245A2B0E00F44AA8 /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC273245A2B0E00F44AA8 /* MarkdownParser.swift */; };
 		00DCC288245A2B0E00F44AA8 /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC274245A2B0E00F44AA8 /* MarkdownDocument.swift */; };
 		00DCC289245A2B0E00F44AA8 /* Editor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC275245A2B0E00F44AA8 /* Editor.swift */; };
@@ -19,7 +20,6 @@
 		00DCC28C245A2B0E00F44AA8 /* FileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC278245A2B0E00F44AA8 /* FileWatcher.swift */; };
 		00DCC28D245A2B0E00F44AA8 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC27A245A2B0E00F44AA8 /* WindowController.swift */; };
 		00DCC28E245A2B0E00F44AA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC27B245A2B0E00F44AA8 /* AppDelegate.swift */; };
-		00DCC28F245A2B0E00F44AA8 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC27D245A2B0E00F44AA8 /* GCD.swift */; };
 		00DCC291245A2B0E00F44AA8 /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC27F245A2B0E00F44AA8 /* Regex.swift */; };
 		00DCC292245A2B0E00F44AA8 /* NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC281245A2B0E00F44AA8 /* NSUserDefaults.swift */; };
 		00DCC293245A2B0E00F44AA8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DCC282245A2B0E00F44AA8 /* String.swift */; };
@@ -53,6 +53,7 @@
 		00A575E6216FF5BC00A4B6A1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		00B74480246B641600B65BBC /* sample.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = sample.md; path = Resources/sample.md; sourceTree = "<group>"; };
 		00B74482246B679700B65BBC /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = styles.css; path = Resources/Web/styles.css; sourceTree = "<group>"; };
+		00BA79E8246C937D001A07A6 /* OpenInEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenInEditor.swift; sourceTree = "<group>"; };
 		00DCC273245A2B0E00F44AA8 /* MarkdownParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
 		00DCC274245A2B0E00F44AA8 /* MarkdownDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
 		00DCC275245A2B0E00F44AA8 /* Editor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Editor.swift; sourceTree = "<group>"; };
@@ -61,7 +62,6 @@
 		00DCC278245A2B0E00F44AA8 /* FileWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileWatcher.swift; sourceTree = "<group>"; };
 		00DCC27A245A2B0E00F44AA8 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		00DCC27B245A2B0E00F44AA8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		00DCC27D245A2B0E00F44AA8 /* GCD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		00DCC27F245A2B0E00F44AA8 /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		00DCC281245A2B0E00F44AA8 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
 		00DCC282245A2B0E00F44AA8 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -176,8 +176,8 @@
 		00DCC27C245A2B0E00F44AA8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				00DCC27D245A2B0E00F44AA8 /* GCD.swift */,
 				00DCC27F245A2B0E00F44AA8 /* Regex.swift */,
+				00BA79E8246C937D001A07A6 /* OpenInEditor.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -290,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00DCC28E245A2B0E00F44AA8 /* AppDelegate.swift in Sources */,
+				00BA79E9246C937D001A07A6 /* OpenInEditor.swift in Sources */,
 				00DCC293245A2B0E00F44AA8 /* String.swift in Sources */,
 				00DCC295245A2B0E00F44AA8 /* RenderViewController.swift in Sources */,
 				00DCC29B245A2CF900F44AA8 /* RenderView.swift in Sources */,
@@ -298,7 +299,6 @@
 				00DCC28C245A2B0E00F44AA8 /* FileWatcher.swift in Sources */,
 				00DCC28D245A2B0E00F44AA8 /* WindowController.swift in Sources */,
 				00DCC289245A2B0E00F44AA8 /* Editor.swift in Sources */,
-				00DCC28F245A2B0E00F44AA8 /* GCD.swift in Sources */,
 				00DCC29D245D738900F44AA8 /* WebView.swift in Sources */,
 				00DCC288245A2B0E00F44AA8 /* MarkdownDocument.swift in Sources */,
 				00DCC28A245A2B0E00F44AA8 /* SupportController.swift in Sources */,

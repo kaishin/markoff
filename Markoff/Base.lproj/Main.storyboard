@@ -68,7 +68,7 @@
                                                 <action selector="openDocument:" target="Ady-hI-5gd" id="bVn-NM-KNZ"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Open with Editor" keyEquivalent="e" id="lDn-7J-Vq3">
+                                        <menuItem title="Open In Editor" keyEquivalent="e" id="lDn-7J-Vq3">
                                             <connections>
                                                 <action selector="openInEditor:" target="Ady-hI-5gd" id="R57-HV-vlw"/>
                                             </connections>
