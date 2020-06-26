@@ -1,26 +1,31 @@
-# Markoff [![GitHub release](https://img.shields.io/github/release/kaishin/markoff.svg)]() ![Platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
-A light-weight [CommonMark] previewer for macOS.
+# Markoff 2 ![Platform](https://img.shields.io/badge/platform-macOS20%11-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
+
+A lightweight [CommonMark] previewer for macOS Big Sur and later.
+
 
 - Uses `cmark`, a [C implementation][cmark] of [CommonMark], for parsing and
 rendering. This is a lot of faster than other existing Ruby and JavaScript
 solutions.
-- Allows you to select your default editor and open the previewed document in it
-by hitting `Cmd+e`, using the menu item, or clicking the toolbar button.
-- Uses [highlight.js] for syntax highlighting.
-- Detects YAML frontmatter and renders it as a special code block.
+- Uses the [Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture)
+- Uses the new SwiftUI life cycle for document-based apps.
 - Auto-reloads the preview whenever the original file is saved. Depending on
 your editor, you might be able to set up auto-save to get an always up-to-date
 preview without manually saving.
-- Shows basic information such word and character count.
+- Shows basic metadata such word and character count.
 
+### Left to Do
+
+- [ ] Code syntax highlighting.
+- [ ] Select default editor.
+- [ ] Add printing support.
+- [ ] Add addtional CSS styles.
 
 ## Setup
 
-Make sure you have [Carthage] installed, then run in the project root:
+1. Open the project in Xcode
+2. There is no step 2.
 
-~~~shell
-carthage update --platform mac
-~~~
+If you use another text editor, follow your usual SPM workflow.
 
 ## License
 
@@ -28,8 +33,6 @@ See LICENSE file.
 
 Markoff was initially maintained and funded by [thoughtbot, inc](https://thoughtbot.com).
 
-[cmark]: https://github.com/jgm/cmark
+[cmark]: https://github.com/SwiftDocOrg/CommonMark
 [CommonMark]: http://commonmark.org
-[highlight.js]: https://highlightjs.org
 [LICENSE]: https://raw.githubusercontent.com/kaishin/Markoff/master/LICENSE
-[Carthage]: https://github.com/Carthage/Carthage
