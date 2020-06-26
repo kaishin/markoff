@@ -1,4 +1,4 @@
-# Markoff 2 ![Platform](https://img.shields.io/badge/platform-macOS20%11-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
+# Markoff 2 ![Platform](https://img.shields.io/badge/platform-macOS%2011-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
 
 A lightweight [CommonMark] previewer for macOS Big Sur and later.
 
