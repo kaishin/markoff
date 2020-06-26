@@ -31,7 +31,10 @@ If you use another text editor, follow your usual SPM workflow.
 
 See LICENSE file.
 
-Markoff was initially maintained and funded by [thoughtbot, inc](https://thoughtbot.com).
+## Author
+
+[Reda Lemeden](https://redalemeden.com)
+
 
 [cmark]: https://github.com/SwiftDocOrg/CommonMark
 [CommonMark]: http://commonmark.org
