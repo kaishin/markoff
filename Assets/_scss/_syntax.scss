@@ -1,0 +1,229 @@
+$comment-color: #998;
+$keyword-color: #a71d5d;
+$number-color: #0086b3;
+$string-color: #183691;
+$id-color: #795da3;
+$tag-color: #63a35c;
+$regex-color: #009926;
+$special-color: #990073;
+$pragma-color: #999;
+$deletion-color: #fdd;
+$addition-color: #dfd;
+$chunk-color: #aaa;
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+}
+
+.hljs-comment {
+  color: $comment-color;
+}
+
+.language-diff {
+  .hljs-header {
+    color: $comment-color;
+  }
+
+  .hljs-change {
+    background: $number-color;
+  }
+}
+
+.hljs-keyword {
+  color: $keyword-color;
+}
+
+.hljs-winutils {
+  color: $keyword-color;
+}
+
+.hljs-subst {
+  color: $keyword-color;
+}
+
+.hljs-request {
+  color: $keyword-color;
+}
+
+.hljs-status {
+  color: $keyword-color;
+}
+
+.hljs-number {
+  color: $number-color;
+}
+
+.hljs-hexcolor {
+  color: $number-color;
+}
+
+.language-ruby {
+  .hljs-constant {
+    color: $number-color;
+  }
+
+  .hljs-string {
+    color: $special-color;
+  }
+}
+
+.hljs-string {
+  color: $string-color;
+}
+
+.hljs-tag {
+  color: $tag-color;
+
+  .hljs-value {
+    color: $string-color;
+  }
+
+  .hljs-title {
+    color: $tag-color;
+  }
+}
+
+.hljs-doctag {
+  color: $string-color;
+}
+
+.language-tex {
+  .hljs-formula {
+    color: $string-color;
+  }
+
+  .hljs-command {
+    color: $number-color;
+  }
+
+  .hljs-special {
+    color: $special-color;
+  }
+}
+
+.hljs-title {
+  color: $id-color;
+}
+
+.hljs-id {
+  color: $id-color;
+}
+
+.hljs-type {
+  color: $number-color;
+}
+
+.hljs-attribute {
+  color: $number-color;
+}
+
+.hljs-variable {
+  color: $number-color;
+}
+
+.language-lisp {
+  .hljs-body {
+    color: $number-color;
+  }
+
+  .hljs-keyword {
+    color: $special-color;
+  }
+}
+
+.hljs-name {
+  color: $number-color;
+}
+
+.hljs-regexp {
+  color: $regex-color;
+}
+
+.hljs-symbol {
+  color: $special-color;
+}
+
+.hljs-prompt {
+  color: $special-color;
+}
+
+.hljs-built-in {
+  color: $number-color;
+}
+
+.hljs-preprocessor {
+  color: $pragma-color;
+}
+
+.hljs-pragma {
+  color: $pragma-color;
+}
+
+.hljs-pi {
+  color: $pragma-color;
+}
+
+.hljs-doctype {
+  color: $pragma-color;
+}
+
+.hljs-shebang {
+  color: $pragma-color;
+}
+
+.hljs-cdata {
+  color: $pragma-color;
+}
+
+.hljs-deletion {
+  background: $deletion-color;
+}
+
+.hljs-addition {
+  background: $addition-color;
+}
+
+.hljs-chunk {
+  color: $chunk-color;
+}
+
+.language-css .hljs-keyword {
+  color: $keyword-color;
+}
+
+.language-nginx .hljs-title {
+  color: $keyword-color;
+}
+
+.language-scss .hljs-preprocessor {
+  color: $id-color;
+}
+
+.hljs-class .hljs-title {
+  color: $number-color;
+}
+
+.language-vhdl .hljs-literal {
+  color: $number-color;
+}
+
+.hljs-rule .hljs-property {
+  color: $tag-color;
+}
+
+.language-django .hljs-keyword {
+  color: $tag-color;
+}
+
+.language-html .hljs-attribute {
+  color: $id-color;
+}
+
+.language-clojure .hljs-keyword {
+  color: $special-color;
+}
+
+.language-scheme .hljs-keyword {
+  color: $special-color;
+}
