@@ -3,17 +3,15 @@
 A lightweight [CommonMark] previewer for macOS Big Sur and later.
 
 
-- Uses `cmark`, a [C implementation][cmark] of [CommonMark], for parsing and
-rendering. This is a lot of faster than other existing Ruby and JavaScript
-solutions.
-- Uses the [Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture)
-- Uses the new SwiftUI life cycle for document-based apps.
+- Uses [SwiftDoc](https://github.com/SwiftDocOrg)'s [CommonMark](https://github.com/SwiftDocOrg/CommonMark) implementation for transforming the markdown into HTML.
+- Uses the [Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture).
+- Uses the new SwiftUI lifecycle for document-based apps.
 - Auto-reloads the preview whenever the original file is saved. Depending on
 your editor, you might be able to set up auto-save to get an always up-to-date
 preview without manually saving.
 - Shows basic metadata such word and character count.
 
-### Left to Do
+### Left to Do for 2.0
 
 - [ ] Code syntax highlighting.
 - [ ] Select default editor.
@@ -22,10 +20,19 @@ preview without manually saving.
 
 ## Setup
 
-1. Open the project in Xcode
+1. Open the project in Xcode 12 or later.
 2. There is no step 2.
 
 If you use another text editor, follow your usual SPM workflow.
+
+## Previous Versions
+
+The previous versions of the app are in the `markoff-1` and `markoff-2` branches.
+
+- The `markoff-1` branch is deprecated.
+- The `markoff-2` branch is compatible with Catalina, and will get some minor patches in the future. 
+
+All future development will take place in the `main` branch.
 
 ## License
 
@@ -35,7 +42,4 @@ See LICENSE file.
 
 [Reda Lemeden](https://redalemeden.com)
 
-
-[cmark]: https://github.com/SwiftDocOrg/CommonMark
-[CommonMark]: http://commonmark.org
 [LICENSE]: https://raw.githubusercontent.com/kaishin/Markoff/master/LICENSE
