@@ -1,6 +1,6 @@
 # Markoff 2 ![Platform](https://img.shields.io/badge/platform-macOS%2011-lightgrey.svg) ![Platform](https://img.shields.io/badge/license-ISC-lightgrey.svg)
 
-A lightweight [CommonMark] previewer for macOS Big Sur and later.
+A lightweight CommonMark previewer for macOS Big Sur and later.
 
 
 - Uses [SwiftDoc](https://github.com/SwiftDocOrg)'s [CommonMark](https://github.com/SwiftDocOrg/CommonMark) implementation for transforming the markdown into HTML.
