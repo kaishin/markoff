@@ -98,7 +98,15 @@ extension WebView {
 
 extension WKWebView {
   func scrollTo(_ YOffset: Float) {
-    evaluateJavaScript("window.scrollTo(0, \(YOffset));")
+    let scrollScript = WKUserScript(
+      source: "window.scrollTo(0, \(YOffset));",
+      injectionTime: .atDocumentEnd,
+      forMainFrameOnly: true
+    )
+    
+    configuration
+      .userContentController
+      .addUserScript(scrollScript)
   }
 }
 
