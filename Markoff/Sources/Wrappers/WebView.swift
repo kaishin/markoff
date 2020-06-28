@@ -29,6 +29,12 @@ struct WebView: NSViewRepresentable {
     contentController.add(context.coordinator, name: scrollPositionUpdated)
     config.userContentController = contentController
 
+    #if DEBUG
+    config
+      .preferences
+      .setValue(true, forKey: "developerExtrasEnabled")
+    #endif
+    
     let webView = WKWebView(frame: .zero, configuration: config)
     webView.navigationDelegate = context.coordinator
 
