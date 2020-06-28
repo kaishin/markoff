@@ -10,7 +10,7 @@
 		00316CC024A8E1D3005714C4 /* scrollPosition.js in Resources */ = {isa = PBXBuildFile; fileRef = 00316CBF24A8E1D3005714C4 /* scrollPosition.js */; };
 		9D8A09C624A364D70048DFAD /* MarkoffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C524A364D70048DFAD /* MarkoffApp.swift */; };
 		9D8A09C824A364D70048DFAD /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C724A364D70048DFAD /* MarkdownDocument.swift */; };
-		9D8A09CA24A364D70048DFAD /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C924A364D70048DFAD /* DocumentView.swift */; };
+		9D8A09CA24A364D70048DFAD /* MarkupRenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C924A364D70048DFAD /* MarkupRenderView.swift */; };
 		9D8A09CC24A364D80048DFAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A09CB24A364D80048DFAD /* Assets.xcassets */; };
 		9D8A09CF24A364D80048DFAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8A09CE24A364D80048DFAD /* Preview Assets.xcassets */; };
 		9D8A09DB24A364D80048DFAD /* MarkoffTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09DA24A364D80048DFAD /* MarkoffTests.swift */; };
@@ -18,7 +18,7 @@
 		9D8A09F524A3680C0048DFAD /* CommonMark in Frameworks */ = {isa = PBXBuildFile; productRef = 9D8A09F424A3680C0048DFAD /* CommonMark */; };
 		9D8A09F924A381960048DFAD /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09F824A381960048DFAD /* MarkdownParser.swift */; };
 		9D8A09FF24A404E80048DFAD /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9D8A09FE24A404E80048DFAD /* ComposableArchitecture */; };
-		9D8A0A0124A405DE0048DFAD /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A0A0024A405DE0048DFAD /* Document.swift */; };
+		9D8A0A0124A405DE0048DFAD /* MarkupRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A0A0024A405DE0048DFAD /* MarkupRender.swift */; };
 		9DD2AD5224A4B1B900B0EC70 /* styles.css in Resources */ = {isa = PBXBuildFile; fileRef = 9DD2AD5124A4B1B900B0EC70 /* styles.css */; };
 		9DD2AD5424A4B27A00B0EC70 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2AD5324A4B27A00B0EC70 /* BlurView.swift */; };
 		9DD2AD5624A4B35F00B0EC70 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD2AD5524A4B35F00B0EC70 /* String.swift */; };
@@ -47,7 +47,7 @@
 		9D8A09C224A364D70048DFAD /* Markoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A09C524A364D70048DFAD /* MarkoffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkoffApp.swift; sourceTree = "<group>"; };
 		9D8A09C724A364D70048DFAD /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
-		9D8A09C924A364D70048DFAD /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
+		9D8A09C924A364D70048DFAD /* MarkupRenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupRenderView.swift; sourceTree = "<group>"; };
 		9D8A09CB24A364D80048DFAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D8A09CE24A364D80048DFAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D8A09D024A364D80048DFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		9D8A09E524A364D80048DFAD /* MarkoffUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkoffUITests.swift; sourceTree = "<group>"; };
 		9D8A09E724A364D80048DFAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D8A09F824A381960048DFAD /* MarkdownParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownParser.swift; sourceTree = "<group>"; };
-		9D8A0A0024A405DE0048DFAD /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		9D8A0A0024A405DE0048DFAD /* MarkupRender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkupRender.swift; sourceTree = "<group>"; };
 		9DD2AD5124A4B1B900B0EC70 /* styles.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = styles.css; sourceTree = "<group>"; };
 		9DD2AD5324A4B27A00B0EC70 /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		9DD2AD5524A4B35F00B0EC70 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -213,8 +213,8 @@
 		9DD2AD5C24A636BD00B0EC70 /* Document */ = {
 			isa = PBXGroup;
 			children = (
-				9D8A0A0024A405DE0048DFAD /* Document.swift */,
-				9D8A09C924A364D70048DFAD /* DocumentView.swift */,
+				9D8A0A0024A405DE0048DFAD /* MarkupRender.swift */,
+				9D8A09C924A364D70048DFAD /* MarkupRenderView.swift */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -358,11 +358,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D8A0A0124A405DE0048DFAD /* Document.swift in Sources */,
+				9D8A0A0124A405DE0048DFAD /* MarkupRender.swift in Sources */,
 				9DD2AD5424A4B27A00B0EC70 /* BlurView.swift in Sources */,
 				9D8A09C624A364D70048DFAD /* MarkoffApp.swift in Sources */,
 				9D8A09C824A364D70048DFAD /* MarkdownDocument.swift in Sources */,
-				9D8A09CA24A364D70048DFAD /* DocumentView.swift in Sources */,
+				9D8A09CA24A364D70048DFAD /* MarkupRenderView.swift in Sources */,
 				9DD2AD5924A52A0F00B0EC70 /* WebView.swift in Sources */,
 				9DD2AD5624A4B35F00B0EC70 /* String.swift in Sources */,
 				9D8A09F924A381960048DFAD /* MarkdownParser.swift in Sources */,

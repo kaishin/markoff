@@ -1,8 +1,8 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct DocumentView: View {
-  var store: Store<Document.State, Document.Action>
+struct MarkupRenderView: View {
+  var store: Store<MarkupRender.State, MarkupRender.Action>
   @State var scrollPosition: Float = 0
 
   var body: some View {

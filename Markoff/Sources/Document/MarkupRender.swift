@@ -1,7 +1,7 @@
 import ComposableArchitecture
 import SwiftUI
 
-enum Document {
+enum MarkupRender {
   typealias Environemnt = ()
 
   struct State: Equatable {
@@ -27,7 +27,7 @@ enum Document {
       return documentConfig.fileURL
     }
 
-    static func == (lhs: Document.State, rhs: Document.State) -> Bool {
+    static func == (lhs: MarkupRender.State, rhs: MarkupRender.State) -> Bool {
       lhs.documentConfig.fileURL == rhs.documentConfig.fileURL
     }
   }

@@ -4,11 +4,11 @@ import SwiftUI
 struct MarkoffApp: App {
   var body: some Scene {
     DocumentGroup(viewing: MarkdownDocument.self) { config in
-      DocumentView(
+      MarkupRenderView(
         store:
           .init(
             initialState: .init(config),
-            reducer: Document.reducer,
+            reducer: MarkupRender.reducer,
             environment: ()
           )
       )
