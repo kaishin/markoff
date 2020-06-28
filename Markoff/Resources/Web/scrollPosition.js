@@ -1,4 +1,4 @@
-var scrollEnded = function (callback) {
+var scrollEnded = (callback) => {
   if (!callback || typeof callback !== 'function') return;
 
   var isScrolling;
@@ -7,11 +7,10 @@ var scrollEnded = function (callback) {
     window.clearTimeout(isScrolling);
     isScrolling = setTimeout(function() {
       callback();
-    }, 60);
+    }, 250);
   }, false);
 };
 
-scrollEnded(function () {
-  webkit.messageHandlers.scrollPositionUpdated.postMessage(window.pageYOffset)
-  console.log( 'Scrolling has stopped.' );
+scrollEnded(() => {
+  window.webkit.messageHandlers.scrollPositionUpdated.postMessage(window.pageYOffset)
 });
