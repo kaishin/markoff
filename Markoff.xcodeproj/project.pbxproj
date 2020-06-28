@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00316CC024A8E1D3005714C4 /* scrollPosition.js in Resources */ = {isa = PBXBuildFile; fileRef = 00316CBF24A8E1D3005714C4 /* scrollPosition.js */; };
 		9D8A09C624A364D70048DFAD /* MarkoffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C524A364D70048DFAD /* MarkoffApp.swift */; };
 		9D8A09C824A364D70048DFAD /* MarkdownDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C724A364D70048DFAD /* MarkdownDocument.swift */; };
 		9D8A09CA24A364D70048DFAD /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A09C924A364D70048DFAD /* DocumentView.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00316CBF24A8E1D3005714C4 /* scrollPosition.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = scrollPosition.js; sourceTree = "<group>"; };
 		9D8A09C224A364D70048DFAD /* Markoff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Markoff.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8A09C524A364D70048DFAD /* MarkoffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkoffApp.swift; sourceTree = "<group>"; };
 		9D8A09C724A364D70048DFAD /* MarkdownDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownDocument.swift; sourceTree = "<group>"; };
@@ -152,7 +154,7 @@
 		9D8A09F624A37CE30048DFAD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9DD2AD5124A4B1B900B0EC70 /* styles.css */,
+				9DC17C1124A8C00200A9B461 /* Web */,
 				9D8A09CB24A364D80048DFAD /* Assets.xcassets */,
 				9D8A09D024A364D80048DFAD /* Info.plist */,
 				9D8A09D124A364D80048DFAD /* Markoff.entitlements */,
@@ -179,6 +181,16 @@
 				9DD2AD5824A52A0F00B0EC70 /* WebView.swift */,
 			);
 			path = Wrappers;
+			sourceTree = "<group>";
+		};
+		9DC17C1124A8C00200A9B461 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				9DD2AD5124A4B1B900B0EC70 /* styles.css */,
+				00316CBF24A8E1D3005714C4 /* scrollPosition.js */,
+			);
+			name = Web;
+			path = Resources/Web;
 			sourceTree = "<group>";
 		};
 		9DD2AD5024A49AD300B0EC70 /* Markdown */ = {
@@ -318,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00316CC024A8E1D3005714C4 /* scrollPosition.js in Resources */,
 				9DD2AD5224A4B1B900B0EC70 /* styles.css in Resources */,
 				9D8A09CF24A364D80048DFAD /* Preview Assets.xcassets in Resources */,
 				9D8A09CC24A364D80048DFAD /* Assets.xcassets in Resources */,
@@ -509,6 +522,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Markoff/Markoff.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Markoff/Preview Content\"";
@@ -533,6 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Markoff/Markoff.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Markoff/Preview Content\"";
