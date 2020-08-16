@@ -26,14 +26,23 @@ build/
 *.dat
 *.dep
 
-# AppCode specific files
-.idea/
-*.iml
-
-# Theme
-node_modules
-_site/
-_vendor/
-
 # SPM
 .swiftpm/
+
+## NPM
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.pnp.*
+Assets/node_modules/
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+## Local History for Visual Studio Code
+.history/

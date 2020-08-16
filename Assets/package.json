@@ -1,12 +1,18 @@
 {
   "name": "markoff",
-  "browserslist": ["> 1%", "not dead"],
+  "browserslist": ["Safari 13"],
   "scripts": {
-    "watch": "postcss -w /css/**/*.css -o ../Markoff/Resources/styles.css --config ./postcss.config.js"
+    "watch": "postcss -w ./css/**/*.css -o ../Resources/all.min.css --config ./postcss.config.js"
   },
   "dependencies": {
+    "browserslist": "^4",
     "cssnano": "^4.1.10",
     "postcss-cli": "^7.1.0",
+    "postcss-color-mod-function": "^3.0.3",
+    "postcss-extend": "^1.0.5",
+    "postcss-import": "^12.0.1",
+    "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0"
-  }
+  },
+  "license": "MIT"
 }

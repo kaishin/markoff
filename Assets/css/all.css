@@ -1,0 +1,7 @@
+:root {
+  --system-red: rgb(255, 59, 48);
+}
+
+body {
+  color: var(--system-red);
+}

@@ -1,0 +1,9 @@
+@custom-media --dark-mode (prefers-color-scheme: dark);
+@custom-media --light-mode (prefers-color-scheme: light);
+
+%default-theme-base {
+  --primary-color: #a93d3d;
+
+  %light-theme {
+  }
+}
