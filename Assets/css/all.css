@@ -1,7 +1,4 @@
-:root {
-  --system-red: rgb(255, 59, 48);
-}
-
 body {
-  color: var(--system-red);
+  color: var(--background-color);
+  font-family: sans-serif;
 }

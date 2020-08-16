@@ -16,8 +16,5 @@ module.exports = () => ({
       },
     }),
     postcssColorMod(),
-    cssNano({
-      preset: 'default',
-    }),
   ],
 });

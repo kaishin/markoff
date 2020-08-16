@@ -1,0 +1,31 @@
+body {
+  color: var(--background-color);
+  font-family: sans-serif;
+}
+
+:root {
+  --light-primary-color: #a93d3d;
+  --dark-primary-color: #000000;
+}
+
+.default-theme-light {
+  --background-color: var(--light-primary-color);
+}
+
+.default-theme-dark {
+  --background-color: var(--dark-primary-color);
+}
+
+@media (prefers-color-scheme: light) {
+
+:root {
+  	--background-color: var(--light-primary-color)
+}
+  }
+
+@media (prefers-color-scheme: dark) {
+
+:root {
+  	--background-color: var(--dark-primary-color)
+}
+  }

@@ -2,7 +2,7 @@
   "name": "markoff",
   "browserslist": ["Safari 13"],
   "scripts": {
-    "watch": "postcss -w ./css/**/*.css -o ../Resources/all.min.css --config ./postcss.config.js"
+    "build:css": "postcss -w ./css/themes/*.css --dir ../Resources/ --config ./postcss.config.js"
   },
   "dependencies": {
     "browserslist": "^4",
