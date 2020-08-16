@@ -1,5 +1,8 @@
 {
   "files.associations": {
     "*.css": "postcss"
+  },
+  "files.exclude": {
+    "**/public": false,
   }
 }

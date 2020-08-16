@@ -34,7 +34,7 @@ build/
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
-Assets/node_modules/
+node_modules/
 
 # VS Code
 .vscode/*

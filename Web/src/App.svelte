@@ -1,9 +1,11 @@
----
-title: "Sample Markdown Document"
-tags: tag-one, tag-two, tag-three
-author: "Reda Lemeden"
----
+<script>
+  import '/css/all.css';
+  import commonmark from 'commonmark';
 
+  var reader = new commonmark.Parser();
+  var writer = new commonmark.HtmlRenderer();
+
+  let markdown = `
 # Chapter 1
 ## Loomings
 
@@ -11,7 +13,7 @@ Call me Ishmael. Some years ago- never mind how long precisely- having little or
 
 <div id="anchor"></div>
 
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+2nd paragraph. *Italic*, **bold**, and \`monospace\`. Itemized lists
 look like:
 
   * This one
@@ -63,4 +65,12 @@ doc](#anchor).
 
 #### Image
 
-![example image](http://lorempixel.com/900/300)
+![example image](http://lorempixel.com/900/300/)
+  `
+  var parsed = reader.parse(markdown);
+  var result = writer.render(parsed);
+</script>
+
+<main>
+  {@html result}
+</main>
