@@ -4,79 +4,10 @@
 
 $blockquote-border-color: #ddd;
 $border-color: #eee;
-$code-background-color: #f7f7f7;
+$code-background-color: #f6f8fa;
 $link-color: #4078c0;
 $secondary-text-color: #777;
 $separator-color: #e7e7e7;
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  margin: auto;
-  max-width: 920px;
-  min-width: 500px;
-  padding: 2rem;
-  word-wrap: break-word;
-}
-
-%heading {
-  font-weight: bold;
-  line-height: 1.4;
-  margin-bottom: 16px;
-  margin-top: 1em;
-  position: relative;
-}
-
-h1 {
-  @extend %heading;
-  border-bottom: 1px solid $border-color;
-  font-size: 2.25em;
-  line-height: 1.2;
-  padding-bottom: 0.3em;
-}
-
-h2 {
-  @extend %heading;
-  border-bottom: 1px solid $border-color;
-  font-size: 1.75em;
-  line-height: 1.225;
-  padding-bottom: 0.3em;
-}
-
-h3 {
-  @extend %heading;
-  font-size: 1.5em;
-  line-height: 1.43;
-}
-
-h4 {
-  @extend %heading;
-  font-size: 1.25em;
-}
-
-h5 {
-  @extend %heading;
-  font-size: 1em;
-}
-
-h6 {
-  @extend %heading;
-  color: $secondary-text-color;
-  font-size: 1em;
-}
-
-hr {
-  background-color: $separator-color;
-  border: 0 none;
-  height: 4px;
-  margin: 16px 0;
-  padding: 0;
-}
 
 blockquote {
   border-left: 4px solid $blockquote-border-color;

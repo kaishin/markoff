@@ -11,219 +11,128 @@ $deletion-color: #fdd;
 $addition-color: #dfd;
 $chunk-color: #aaa;
 
-.hljs {
-  display: block;
-  overflow-x: auto;
+.pl-c {
+  color: #6a737d;
 }
 
-.hljs-comment {
-  color: $comment-color;
+.pl-c1
+  /* constant, entity.name.constant, variable.other.constant, variable.language, support, meta.property-name, support.constant, support.variable, meta.module-reference, markup.raw, meta.diff.header, meta.output */,
+.pl-s .pl-v {
+  color: #005cc5;
 }
 
-.language-diff {
-  .hljs-header {
-    color: $comment-color;
-  }
-
-  .hljs-change {
-    background: $number-color;
-  }
+.pl-e /* entity */,
+.pl-en {
+  color: #6f42c1;
 }
 
-.hljs-keyword {
-  color: $keyword-color;
+.pl-smi
+  /* variable.parameter.function, storage.modifier.package, storage.modifier.import, storage.type.java, variable.other */,
+.pl-s .pl-s1 {
+  color: #24292e;
 }
 
-.hljs-winutils {
-  color: $keyword-color;
+.pl-ent {
+  color: #22863a;
 }
 
-.hljs-subst {
-  color: $keyword-color;
+.pl-k {
+  color: #d73a49;
 }
 
-.hljs-request {
-  color: $keyword-color;
+.pl-s /* string */,
+.pl-pds /* punctuation.definition.string, source.regexp, string.regexp.character-class */,
+.pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
+.pl-sr /* string.regexp */,
+.pl-sr .pl-cce /* string.regexp constant.character.escape */,
+.pl-sr .pl-sre /* string.regexp source.ruby.embedded */,
+.pl-sr .pl-sra {
+  color: #032f62;
 }
 
-.hljs-status {
-  color: $keyword-color;
+.pl-v /* variable */,
+.pl-smw {
+  color: #e36209;
 }
 
-.hljs-number {
-  color: $number-color;
+.pl-bu {
+  color: #b31d28;
 }
 
-.hljs-hexcolor {
-  color: $number-color;
+.pl-ii {
+  color: #fafbfc;
+  background-color: #b31d28;
 }
 
-.language-ruby {
-  .hljs-constant {
-    color: $number-color;
-  }
-
-  .hljs-string {
-    color: $special-color;
-  }
+.pl-c2 {
+  color: #fafbfc;
+  background-color: #d73a49;
 }
 
-.hljs-string {
-  color: $string-color;
+.pl-c2::before {
+  content: "^M";
 }
 
-.hljs-tag {
-  color: $tag-color;
-
-  .hljs-value {
-    color: $string-color;
-  }
-
-  .hljs-title {
-    color: $tag-color;
-  }
+.pl-sr .pl-cce {
+  font-weight: bold;
+  color: #22863a;
 }
 
-.hljs-doctag {
-  color: $string-color;
+.pl-ml {
+  color: #735c0f;
 }
 
-.language-tex {
-  .hljs-formula {
-    color: $string-color;
-  }
-
-  .hljs-command {
-    color: $number-color;
-  }
-
-  .hljs-special {
-    color: $special-color;
-  }
+.pl-mh /* markup.heading */,
+.pl-mh .pl-en /* markup.heading entity.name */,
+.pl-ms {
+  font-weight: bold;
+  color: #005cc5;
 }
 
-.hljs-title {
-  color: $id-color;
+.pl-mi {
+  font-style: italic;
+  color: #24292e;
 }
 
-.hljs-id {
-  color: $id-color;
+.pl-mb {
+  font-weight: bold;
+  color: #24292e;
 }
 
-.hljs-type {
-  color: $number-color;
+.pl-md {
+  color: #b31d28;
+  background-color: #ffeef0;
 }
 
-.hljs-attribute {
-  color: $number-color;
+.pl-mi1 {
+  color: #22863a;
+  background-color: #f0fff4;
 }
 
-.hljs-variable {
-  color: $number-color;
+.pl-mc {
+  color: #e36209;
+  background-color: #ffebda;
 }
 
-.language-lisp {
-  .hljs-body {
-    color: $number-color;
-  }
-
-  .hljs-keyword {
-    color: $special-color;
-  }
+.pl-mi2 {
+  color: #f6f8fa;
+  background-color: #005cc5;
 }
 
-.hljs-name {
-  color: $number-color;
+.pl-mdr {
+  font-weight: bold;
+  color: #6f42c1;
 }
 
-.hljs-regexp {
-  color: $regex-color;
+.pl-ba {
+  color: #586069;
 }
 
-.hljs-symbol {
-  color: $special-color;
+.pl-sg {
+  color: #959da5;
 }
 
-.hljs-prompt {
-  color: $special-color;
-}
-
-.hljs-built-in {
-  color: $number-color;
-}
-
-.hljs-preprocessor {
-  color: $pragma-color;
-}
-
-.hljs-pragma {
-  color: $pragma-color;
-}
-
-.hljs-pi {
-  color: $pragma-color;
-}
-
-.hljs-doctype {
-  color: $pragma-color;
-}
-
-.hljs-shebang {
-  color: $pragma-color;
-}
-
-.hljs-cdata {
-  color: $pragma-color;
-}
-
-.hljs-deletion {
-  background: $deletion-color;
-}
-
-.hljs-addition {
-  background: $addition-color;
-}
-
-.hljs-chunk {
-  color: $chunk-color;
-}
-
-.language-css .hljs-keyword {
-  color: $keyword-color;
-}
-
-.language-nginx .hljs-title {
-  color: $keyword-color;
-}
-
-.language-scss .hljs-preprocessor {
-  color: $id-color;
-}
-
-.hljs-class .hljs-title {
-  color: $number-color;
-}
-
-.language-vhdl .hljs-literal {
-  color: $number-color;
-}
-
-.hljs-rule .hljs-property {
-  color: $tag-color;
-}
-
-.language-django .hljs-keyword {
-  color: $tag-color;
-}
-
-.language-html .hljs-attribute {
-  color: $id-color;
-}
-
-.language-clojure .hljs-keyword {
-  color: $special-color;
-}
-
-.language-scheme .hljs-keyword {
-  color: $special-color;
+.pl-corl {
+  text-decoration: underline;
+  color: #032f62;
 }

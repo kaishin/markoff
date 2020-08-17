@@ -1,5 +1,5 @@
 <script>
-  import '/css/all.css';
+  import '/css/github.css';
   import commonmark from 'commonmark';
 
   var reader = new commonmark.Parser();
